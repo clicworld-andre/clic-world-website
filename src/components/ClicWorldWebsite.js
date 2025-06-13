@@ -84,7 +84,7 @@ const ClicWorldWebsite = () => {
                 </span>
                 <span className="flex items-center">
                   <span className="mr-2">🌍</span>
-                  Movement Without Borders
+                  Clic.World - Movement Without Borders
                 </span>
               </div>
               <div className="hidden md:block">
