@@ -101,7 +101,7 @@ const ClicWorldWebsite = () => {
               <img 
                 src={`${process.env.PUBLIC_URL}/clic-logo.png`} 
                 alt="Clic.World Logo" 
-                className="w-12 h-12 object-contain"
+                className="w-16 h-16 object-contain"
               />
             </div>
             
