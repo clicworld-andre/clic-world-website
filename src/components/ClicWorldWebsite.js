@@ -79,7 +79,11 @@ const ClicWorldWebsite = () => {
             <div className="flex justify-between items-center text-sm">
               <div className="flex items-center space-x-6">
                 <span className="flex items-center">
-                  <span className="mr-2">💎</span>
+                  <img 
+                    src={`${process.env.PUBLIC_URL}/clix-token-logo.png`}
+                    alt="CLIX Token"
+                    className="w-4 h-4 mr-2"
+                  />
                   CLIX ${clixPrice}
                 </span>
                 <span className="flex items-center">
