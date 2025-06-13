@@ -83,7 +83,6 @@ const ClicWorldWebsite = () => {
                   CLIX ${clixPrice}
                 </span>
                 <span className="flex items-center">
-                  <span className="mr-2">🌍</span>
                   Clic.World | Where Sound Money Meets Community Power
                 </span>
               </div>
