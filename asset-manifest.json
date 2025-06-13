@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/clic-world-website/static/css/main.d9b2ddd7.css",
+    "main.js": "/clic-world-website/static/js/main.f33f5b1e.js",
+    "index.html": "/clic-world-website/index.html",
+    "main.d9b2ddd7.css.map": "/clic-world-website/static/css/main.d9b2ddd7.css.map",
+    "main.f33f5b1e.js.map": "/clic-world-website/static/js/main.f33f5b1e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d9b2ddd7.css",
+    "static/js/main.f33f5b1e.js"
+  ]
+}
