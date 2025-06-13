@@ -84,11 +84,11 @@ const ClicWorldWebsite = () => {
                 </span>
                 <span className="flex items-center">
                   <span className="mr-2">🌍</span>
-                  Clic.World: Where Sound Money Meets Community Power
+                  Clic.World | Where Sound Money Meets Community Power
                 </span>
               </div>
               <div className="hidden md:block">
-                <span>The future of digital - is human</span>
+                <span>The Future of Digital | Is Human</span>
               </div>
             </div>
           </div>
