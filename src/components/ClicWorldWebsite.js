@@ -98,9 +98,11 @@ const ClicWorldWebsite = () => {
         <div className="container-custom">
           <div className="flex justify-between items-center py-4">
             <div className="flex items-center space-x-3">
-              <div className="feature-icon w-12 h-12 text-xl">
-                🌍
-              </div>
+              <img 
+                src="/clic-logo.png" 
+                alt="Clic.World Logo" 
+                className="w-12 h-12 object-contain"
+              />
               <span className="text-2xl font-black text-gray-900">Clic.World</span>
             </div>
             
