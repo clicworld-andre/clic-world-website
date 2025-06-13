@@ -163,7 +163,8 @@ const ClicWorldWebsite = () => {
               
               <p className="text-body mb-8 text-white/90">
                 Money re-centralized where it belongs – in the hands of those who build real value. 
-                Community-owned finance powered by blockchain, serving 500 million cooperative members across Africa.
+                Community-owned finance powered by responsible AI and the blockchain, ready to serve 500 million cooperative 
+                members across Africa and the World.
               </p>
 
               {/* Enhanced Live Stats */}
