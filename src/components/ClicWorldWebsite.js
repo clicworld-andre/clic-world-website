@@ -101,11 +101,16 @@ const ClicWorldWebsite = () => {
         <div className="container-custom">
           <div className="flex justify-between items-center py-2">
             <div className="flex items-center space-x-3">
-              <img 
-                src={`${process.env.PUBLIC_URL}/clic-logo.png`} 
-                alt="Clic.World Logo" 
-                className="w-20 h-20 object-contain"
-              />
+              <button 
+                onClick={() => scrollToSection('home')}
+                className="cursor-pointer hover:opacity-80 transition-opacity"
+              >
+                <img 
+                  src={`${process.env.PUBLIC_URL}/clic-logo.png`} 
+                  alt="Clic.World Logo" 
+                  className="w-20 h-20 object-contain"
+                />
+              </button>
             </div>
             
             <div className="hidden lg:flex items-center space-x-6">
