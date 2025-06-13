@@ -103,7 +103,6 @@ const ClicWorldWebsite = () => {
                 alt="Clic.World Logo" 
                 className="w-12 h-12 object-contain"
               />
-              <span className="text-2xl font-black text-gray-900">Clic.World</span>
             </div>
             
             <div className="hidden lg:flex items-center space-x-6">
