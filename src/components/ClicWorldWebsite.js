@@ -99,7 +99,7 @@ const ClicWorldWebsite = () => {
           <div className="flex justify-between items-center py-4">
             <div className="flex items-center space-x-3">
               <img 
-                src="/clic-logo.png" 
+                src={`${process.env.PUBLIC_URL}/clic-logo.png`} 
                 alt="Clic.World Logo" 
                 className="w-12 h-12 object-contain"
               />
