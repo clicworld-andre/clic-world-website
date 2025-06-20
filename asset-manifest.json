@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/clic-world-website/static/css/main.d5cdb3ee.css",
-    "main.js": "/clic-world-website/static/js/main.fce35ef1.js",
+    "main.css": "/clic-world-website/static/css/main.5bbbead0.css",
+    "main.js": "/clic-world-website/static/js/main.10b644ba.js",
     "index.html": "/clic-world-website/index.html",
-    "main.d5cdb3ee.css.map": "/clic-world-website/static/css/main.d5cdb3ee.css.map",
-    "main.fce35ef1.js.map": "/clic-world-website/static/js/main.fce35ef1.js.map"
+    "main.5bbbead0.css.map": "/clic-world-website/static/css/main.5bbbead0.css.map",
+    "main.10b644ba.js.map": "/clic-world-website/static/js/main.10b644ba.js.map"
   },
   "entrypoints": [
-    "static/css/main.d5cdb3ee.css",
-    "static/js/main.fce35ef1.js"
+    "static/css/main.5bbbead0.css",
+    "static/js/main.10b644ba.js"
   ]
 }
