@@ -3,10 +3,10 @@ import Navigation from './Navigation';
 import HeroSection from './HeroSection';
 import ProductsSection from './ProductsSection';
 import ClixSection from './ClixSection';
-import PrivacySection from './PrivacySection';
+import PrivacySectionEnhanced from './PrivacySectionEnhanced';
 import ClicBrainSection from './ClicBrainSection';
 import BlogSection from './BlogSection';
-import AboutSection from './AboutSection';
+import AboutSectionEnhanced from './AboutSectionEnhanced';
 import PartnersSection from './PartnersSection';
 import ContactSection from './ContactSection';
 import Footer from './Footer';
@@ -105,7 +105,7 @@ const ClicWorldWebsite = () => {
         scrollToSection={scrollToSection}
       />
       
-      <AboutSection />
+      <AboutSectionEnhanced />
       
       <ProductsSection />
       
@@ -113,7 +113,7 @@ const ClicWorldWebsite = () => {
       
       <ClicBrainSection scrollToSection={scrollToSection} />
       
-      <PrivacySection />
+      <PrivacySectionEnhanced />
       
       <BlogSection />
       

@@ -49,7 +49,7 @@ const Navigation = ({ clixPrice, activeSection, scrollToSection, setActiveSectio
               { id: 'products', label: 'Products' },
               { id: 'clix', label: 'CLIX' },
               { id: 'clicbrain', label: 'ClicBrain' },
-              { id: 'pryvaz', label: 'Data Vault' },
+              { id: 'pryvaz', label: 'Privacy Vault' },
               { id: 'blog', label: 'Blog' },
               { id: 'partners', label: 'Partners' },
               { id: 'contact', label: 'Connect' }
