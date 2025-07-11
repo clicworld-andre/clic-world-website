@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Navigation = ({ clixPrice, activeSection, scrollToSection }) => {
+const Navigation = ({ clixPrice, activeSection, scrollToSection, setActiveSection }) => {
   return (
     <nav className="fixed top-0 w-full z-50 bg-white shadow-lg border-b border-gray-200">
       {/* Top Bar */}
@@ -33,7 +33,7 @@ const Navigation = ({ clixPrice, activeSection, scrollToSection }) => {
           <div className="flex items-center space-x-3">
             <button 
               onClick={() => scrollToSection('home')}
-              className="cursor-pointer hover:opacity-80 transition-opacity"
+              className="cursor-pointer hover:opacity-80 transition-opacity outline-none focus:outline-none"
             >
               <img 
                 src={`${process.env.PUBLIC_URL}/clic-logo.png`} 
@@ -45,18 +45,33 @@ const Navigation = ({ clixPrice, activeSection, scrollToSection }) => {
           
           <div className="hidden lg:flex items-center space-x-6">
             {[
+              { id: 'about', label: 'Movement' },
               { id: 'products', label: 'Products' },
               { id: 'clix', label: 'CLIX' },
               { id: 'clicbrain', label: 'ClicBrain' },
-              { id: 'pryvaz', label: 'Privacy' },
-              { id: 'about', label: 'Movement' },
+              { id: 'pryvaz', label: 'Data Vault' },
+              { id: 'blog', label: 'Blog' },
+              { id: 'partners', label: 'Partners' },
               { id: 'contact', label: 'Connect' }
             ].map((item) => (
               <button
                 key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className={`text-gray-700 hover:text-blue-600 font-medium transition-colors ${
-                  activeSection === item.id ? 'text-blue-600 font-semibold' : ''
+                onClick={() => {
+                  console.log(`🖱️ CLICK START: ${item.id}`);
+                  console.log(`📊 Current activeSection BEFORE: ${activeSection}`);
+                  
+                  // Update active section immediately
+                  setActiveSection(item.id);
+                  console.log(`✅ setActiveSection(${item.id}) called`);
+                  
+                  // Then scroll to the section
+                  scrollToSection(item.id);
+                  console.log(`🖱️ CLICK END: ${item.id}`);
+                }}
+                className={`px-3 py-2 rounded-lg font-medium transition-all border-2 border-transparent outline-none focus:outline-none ${
+                  activeSection === item.id 
+                    ? '!text-blue-800 !font-semibold !bg-blue-100 !border-blue-100' 
+                    : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'
                 }`}
               >
                 {item.label}

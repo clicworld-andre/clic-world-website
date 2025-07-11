@@ -78,15 +78,15 @@ Date: ${new Date().toLocaleString()}
   };
 
   return (
-    <section id="clicbrain" className="py-20 bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 text-white relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 via-blue-500/10 to-indigo-500/10"></div>
+    <section id="clicbrain" className="py-20 bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 text-white relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-blue-500/10 to-blue-500/10"></div>
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-purple-200 via-blue-200 to-indigo-200 bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-200 via-white to-blue-200 bg-clip-text text-transparent">
             ClicBrain: Revolutionary AI-Human Partnership Platform
           </h2>
-          <p className="text-xl md:text-2xl text-purple-200 mb-4 font-light">
+          <p className="text-xl md:text-2xl text-blue-200 mb-4 font-light">
             Transforming Development Productivity & Corporate Intelligence
           </p>
           <p className="text-lg text-white/80 max-w-4xl mx-auto leading-relaxed">
@@ -104,7 +104,7 @@ Date: ${new Date().toLocaleString()}
             { number: '0%', label: 'Development Waste', subtitle: 'AI-enabled efficiency' }
           ].map((stat, index) => (
             <div key={index} className="text-center p-6 bg-white/5 backdrop-blur-lg rounded-2xl border border-white/10">
-              <div className="text-3xl md:text-4xl font-black text-transparent bg-gradient-to-r from-purple-300 to-blue-300 bg-clip-text mb-2">
+              <div className="text-3xl md:text-4xl font-black text-transparent bg-gradient-to-r from-blue-300 to-white bg-clip-text mb-2">
                 {stat.number}
               </div>
               <div className="text-white font-semibold mb-1">{stat.label}</div>
@@ -124,13 +124,13 @@ Date: ${new Date().toLocaleString()}
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button 
                 onClick={() => setShowForm(true)}
-                className="bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white px-8 py-4 rounded-full font-semibold transition-all transform hover:scale-105"
+                className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-8 py-4 rounded-full font-semibold transition-all transform hover:scale-105"
               >
                 Register your interest
               </button>
               <button 
                 onClick={() => scrollToSection('contact')}
-                className="border-2 border-white text-white hover:bg-white hover:text-purple-900 px-8 py-4 rounded-full font-semibold transition-all"
+                className="border-2 border-white text-white hover:bg-white hover:text-blue-900 px-8 py-4 rounded-full font-semibold transition-all"
               >
                 Join Our Community
               </button>
@@ -164,7 +164,7 @@ Date: ${new Date().toLocaleString()}
                         value={formData.name}
                         onChange={handleInputChange}
                         required
-                        className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-purple-400"
+                        className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-blue-400"
                         placeholder="Your first name"
                       />
                     </div>
@@ -176,7 +176,7 @@ Date: ${new Date().toLocaleString()}
                         value={formData.surname}
                         onChange={handleInputChange}
                         required
-                        className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-purple-400"
+                        className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-blue-400"
                         placeholder="Your last name"
                       />
                     </div>
@@ -190,7 +190,7 @@ Date: ${new Date().toLocaleString()}
                       value={formData.businessEmail}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-purple-400"
+                      className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-blue-400"
                       placeholder="your.email@company.com"
                     />
                   </div>
@@ -202,7 +202,7 @@ Date: ${new Date().toLocaleString()}
                       name="linkedinProfile"
                       value={formData.linkedinProfile}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-purple-400"
+                      className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-blue-400"
                       placeholder="https://linkedin.com/in/yourprofile"
                     />
                   </div>
@@ -214,7 +214,7 @@ Date: ${new Date().toLocaleString()}
                       value={formData.designation}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white focus:outline-none focus:ring-2 focus:ring-purple-400"
+                      className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white focus:outline-none focus:ring-2 focus:ring-blue-400"
                     >
                       <option value="">Select your role</option>
                       <option value="CEO">CEO</option>
@@ -264,7 +264,7 @@ Date: ${new Date().toLocaleString()}
                       onChange={handleInputChange}
                       required
                       rows="4"
-                      className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-purple-400 resize-none"
+                      className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-blue-400 resize-none"
                       placeholder="Tell us about your company's needs, current challenges, and what interests you most about ClicBrain..."
                     />
                   </div>
@@ -273,7 +273,7 @@ Date: ${new Date().toLocaleString()}
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="flex-1 bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 disabled:opacity-50 text-white px-8 py-4 rounded-full font-semibold transition-all"
+                      className="flex-1 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 disabled:opacity-50 text-white px-8 py-4 rounded-full font-semibold transition-all"
                     >
                       {isSubmitting ? 'Submitting...' : 'Submit Registration'}
                     </button>

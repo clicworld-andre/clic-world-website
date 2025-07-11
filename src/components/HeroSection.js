@@ -1,4 +1,5 @@
 import React from 'react';
+import communityImage from '../assets/community-group.jpg';
 
 const HeroSection = ({ clixPrice, scrollToSection }) => {
   return (
@@ -49,27 +50,20 @@ const HeroSection = ({ clixPrice, scrollToSection }) => {
             </div>
           </div>
 
-          {/* Enhanced Floating Cards */}
-          <div className="relative h-96 lg:h-80">
-            {[
-              { title: 'Community Ownership', value: '75% Profit Share', icon: '🤝' },
-              { title: 'USSD Access', value: '*483# Ready', icon: '📱' },
-              { title: 'Asset Backed', value: 'KAU/KAG Gold', icon: '🏆' }
-            ].map((card, index) => (
-              <div
-                key={index}
-                className="absolute bg-white/90 backdrop-blur-lg p-6 rounded-2xl shadow-2xl border border-white/20 animate-float"
-                style={{
-                  top: `${index * 25}%`,
-                  left: `${index * 15}%`,
-                  animationDelay: `${index * 2}s`
-                }}
-              >
-                <div className="text-2xl mb-2">{card.icon}</div>
-                <div className="font-semibold text-gray-800 mb-2">{card.title}</div>
-                <div className="text-xl font-bold text-green-600">{card.value}</div>
+          {/* Hero Image */}
+          <div className="relative flex items-end justify-center">
+            <div className="relative w-full h-[400px] rounded-2xl overflow-hidden shadow-2xl">
+              <img 
+                src={communityImage} 
+                alt="Community collaboration and digital engagement"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+              <div className="absolute bottom-6 left-6 text-white">
+                <div className="text-lg font-semibold mb-1">Building Tomorrow</div>
+                <div className="text-sm opacity-90">Community-Owned Finance</div>
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </div>

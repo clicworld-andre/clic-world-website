@@ -97,12 +97,12 @@ const ProductsSection = () => {
   };
 
   return (
-    <section id="products" className="py-20 bg-green-50">
+    <section id="products" className="py-20 bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 text-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4">Complete Ecosystem Solutions</h2>
-          <div className="w-24 h-1 bg-green-600 mx-auto mb-8"></div>
-          <p className="text-xl text-gray-600 max-w-4xl mx-auto">
+          <div className="w-24 h-1 bg-yellow-400 mx-auto mb-8"></div>
+          <p className="text-xl text-white/90 max-w-4xl mx-auto">
             Six interconnected products that power the future of community-owned finance—
             from local banking to global AI intelligence, all built on the CLIX ecosystem.
           </p>

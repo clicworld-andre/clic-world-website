@@ -2,6 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+/* FORCE WHITE TEXT FOR BLOG MODAL */
+.force-white-text {
+  color: #ffffff !important;
+}
+
+h1.force-white-text {
+  color: #ffffff !important;
+}
+
+.force-white-text * {
+  color: #ffffff !important;
+}
+
 /* Enhanced CSS for Clic.World with LoanLift Design System */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
