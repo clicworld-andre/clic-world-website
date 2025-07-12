@@ -1,6 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { blogPosts } from '../data/blogPosts';
+import BlogPostModal from './BlogPostModal';
 
 const AboutSectionEnhanced = () => {
+  // Modal state for "Decentralized Money" blog post
+  const [selectedPost, setSelectedPost] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  
+  // Find the "Decentralized Money" blog post
+  const decentralizedMoneyPost = blogPosts.find(post => post.slug === 'problem-with-decentralized-money-different-path');
+  
+  const openDecentralizedMoneyPost = () => {
+    if (decentralizedMoneyPost) {
+      setSelectedPost(decentralizedMoneyPost);
+      setIsModalOpen(true);
+    }
+  };
+  
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedPost(null);
+  };
   const principles = [
     {
       icon: "💎",
@@ -30,7 +50,7 @@ const AboutSectionEnhanced = () => {
     },
     {
       location: "Across Africa",
-      story: "We saw innovation thriving against all odds, where community is the engine and the future is rewritten daily.",
+      story: "We saw innovation like Mobile Money, SACCOS, Stokvels and Chamas thriving against all odds, where community is the engine and the future is rewritten daily.",
       insight: "Community-powered innovation"
     },
     {
@@ -41,18 +61,22 @@ const AboutSectionEnhanced = () => {
   ];
 
   return (
-    <section id="about" className="py-20 bg-gray-50">
+    <section id="about" className="py-8 bg-gray-50">
       <div className="container mx-auto px-4">
         
         {/* Hero Section */}
         <div className="text-center mb-20">
-          <h2 className="text-5xl font-bold text-gray-900 mb-6">
-            Movement Without Borders
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            <button 
+              onClick={openDecentralizedMoneyPost} 
+              className="text-gray-900 hover:text-blue-700 underline transition-colors cursor-pointer bg-transparent border-none p-0 font-inherit text-inherit leading-inherit"
+            >
+              Clic.World: A Movement Without Borders
+            </button>
           </h2>
-          <div className="w-24 h-1 bg-blue-600 mx-auto mb-8"></div>
-          <p className="text-2xl text-gray-700 max-w-6xl mx-auto mb-12 leading-relaxed">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-12 leading-relaxed">
             From the mines of the Democratic Republic of Congo to a global movement—this is the story 
-            of re-centralizing money where it belongs.
+            of re-centralising money where it belongs.
           </p>
           
           <div className="max-w-5xl mx-auto">
@@ -89,6 +113,31 @@ const AboutSectionEnhanced = () => {
                   </div>
                   <div className="flex-1">
                     <h4 className="text-xl font-bold text-gray-900 mb-2">{step.location}</h4>
+                    
+                    {/* Add image for DRC story */}
+                    {index === 0 && (
+                      <div className="mb-6">
+                        <img 
+                          src={`${process.env.PUBLIC_URL}/artisanal-gold-miners.jpg`} 
+                          alt="Artisanal Gold Miners"
+                          className="w-full h-64 object-cover rounded-lg shadow-md"
+                        />
+                        <p className="text-sm text-gray-500 italic mt-2 text-center">Artisanal Gold Miners</p>
+                      </div>
+                    )}
+                    
+                    {/* Add image for Africa story */}
+                    {index === 1 && (
+                      <div className="mb-6">
+                        <img 
+                          src={`${process.env.PUBLIC_URL}/sacco-mtn-mpesa.png`} 
+                          alt="African Financial Innovation - SACCO, MTN, M-Pesa"
+                          className="w-full h-64 object-cover rounded-lg shadow-md"
+                        />
+                        <p className="text-sm text-gray-500 italic mt-2 text-center">African Financial Innovation - SACCO, MTN, M-Pesa</p>
+                      </div>
+                    )}
+                    
                     <p className="text-gray-700 mb-4 leading-relaxed">{step.story}</p>
                     <div className="bg-green-50 p-4 rounded-lg border-l-4 border-green-500">
                       <p className="text-green-800 font-semibold italic">"{step.insight}"</p>
@@ -165,6 +214,13 @@ const AboutSectionEnhanced = () => {
           <p className="text-lg font-bold text-blue-600">Born in Africa. Built for the world.</p>
         </div>
       </div>
+      
+      {/* Blog Post Modal for "Decentralized Money" */}
+      <BlogPostModal 
+        post={selectedPost}
+        isOpen={isModalOpen}
+        onClose={closeModal}
+      />
     </section>
   );
 };

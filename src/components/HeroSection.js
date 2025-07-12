@@ -1,5 +1,4 @@
 import React from 'react';
-import communityImage from '../assets/community-group.jpg';
 
 const HeroSection = ({ clixPrice, scrollToSection }) => {
   return (
@@ -7,13 +6,13 @@ const HeroSection = ({ clixPrice, scrollToSection }) => {
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="text-white">
-            <h1 className="text-5xl font-extrabold leading-tight mb-6">
+            <h1 className="text-4xl font-extrabold leading-tight mb-6">
               We're not disrupting finance.<br />
               <span className="text-white">We're upgrading it.</span>
             </h1>
             
             <p className="text-xl mb-8 text-white/90 leading-relaxed">
-              Money re-centralized where it belongs – in the hands of those who build real value. 
+              Money re-centralised where it belongs – in the hands of those who build real value. 
               Community-owned finance powered by responsible AI and the blockchain, ready to serve 500 million cooperative 
               members across Africa and the World.
             </p>
@@ -33,28 +32,13 @@ const HeroSection = ({ clixPrice, scrollToSection }) => {
                 </div>
               ))}
             </div>
-
-            <div className="flex flex-col sm:flex-row gap-4">
-              <button 
-                onClick={() => scrollToSection('clix')}
-                className="bg-yellow-500 hover:bg-yellow-600 text-gray-900 px-8 py-3 rounded-lg font-semibold transition-colors"
-              >
-                Discover CLIX Token
-              </button>
-              <button 
-                onClick={() => scrollToSection('about')}
-                className="border-2 border-white text-white hover:bg-white hover:text-blue-800 px-8 py-3 rounded-lg font-semibold transition-colors"
-              >
-                Join the Movement
-              </button>
-            </div>
           </div>
 
           {/* Hero Image */}
           <div className="relative flex items-end justify-center">
             <div className="relative w-full h-[400px] rounded-2xl overflow-hidden shadow-2xl">
               <img 
-                src={communityImage} 
+                src={`${process.env.PUBLIC_URL}/community-group.jpg`} 
                 alt="Community collaboration and digital engagement"
                 className="w-full h-full object-cover"
               />

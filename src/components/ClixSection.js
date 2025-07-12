@@ -10,6 +10,16 @@ const ClixSection = () => {
   // Find the "Finance's Third Way" blog post
   const thirdWayPost = blogPosts.find(post => post.slug === 'clic-world-vision-finance-third-way');
   
+  // Find the "Africa's Youth Surge" blog post
+  const youthSurgePost = blogPosts.find(post => post.slug === 'africa-youth-surge-demographic-dividend-clix-future');
+  
+  const openYouthSurgePost = () => {
+    if (youthSurgePost) {
+      setSelectedPost(youthSurgePost);
+      setIsModalOpen(true);
+    }
+  };
+  
   const openThirdWayPost = () => {
     if (thirdWayPost) {
       setSelectedPost(thirdWayPost);
@@ -82,12 +92,12 @@ const ClixSection = () => {
 
   const growthMetrics = [
     {
-      value: "600M",
+      value: "60M",
       label: "Target Users by 2035",
-      sublabel: "560M Africa + 40M Diaspora"
+      sublabel: "54M Africa + 6M Diaspora"
     },
     {
-      value: "$50B",
+      value: "$15B",
       label: "Annual Transaction Volume",
       sublabel: "Target market goal"
     },
@@ -106,17 +116,16 @@ const ClixSection = () => {
   // FILE_MARKER: All data arrays defined - ready for JSX return
 
   return (
-    <section id="clix" className="py-20 bg-white">
+    <section id="clix" className="py-8 bg-white">
       <div className="container mx-auto px-4">
         
         {/* Hero Section */}
         <div className="text-center mb-20">
-          <h2 className="text-5xl font-bold text-gray-900 mb-6">
-            CLIX: Finance's <button onClick={openThirdWayPost} className="text-green-600 hover:text-green-700 underline transition-colors cursor-pointer bg-transparent border-none p-0 font-inherit text-inherit leading-inherit">Third Way</button>
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            <button onClick={openThirdWayPost} className="text-green-600 hover:text-blue-700 underline transition-colors cursor-pointer bg-transparent border-none p-0 font-inherit text-inherit leading-inherit">CLIX: Finance's Third Way</button>
           </h2>
-          <div className="w-24 h-1 bg-green-600 mx-auto mb-8"></div>
-          <p className="text-2xl text-gray-700 max-w-4xl mx-auto mb-8 leading-relaxed">
-            A utility and investment token powering Clic.World's Decentralized Social Financial Ecosystem
+          <p className="text-xl text-gray-600 max-w-4xl mx-auto mb-8 leading-relaxed">
+            The financial upgrade that puts communities first. CLIX combines a complete social financial platform with a community-owned token, delivering real financial empowerment beyond traditional banking and crypto speculation.
           </p>
           
           <div className="bg-gradient-to-r from-green-50 to-blue-50 rounded-2xl p-8 border border-green-200 max-w-5xl mx-auto">
@@ -129,7 +138,7 @@ const ClixSection = () => {
               <div>
                 <div className="text-3xl font-bold text-blue-600 mb-2">🏦</div>
                 <h4 className="font-bold text-gray-900">Real-World Assets</h4>
-                <p className="text-sm text-gray-600">Gold & bonds backing</p>
+                <p className="text-sm text-gray-600">Buy gold and securities</p>
               </div>
               <div>
                 <div className="text-3xl font-bold text-purple-600 mb-2">🤝</div>
@@ -223,7 +232,7 @@ const ClixSection = () => {
           <div className="text-center mb-12">
             <h3 className="text-3xl font-bold text-gray-900 mb-6">Four Pillars of Utility</h3>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              CLIX serves as payment medium, investment vehicle, loyalty rewards, and governance token
+              The CLIX token serves as payment medium, investment vehicle, loyalty rewards, and governance voting
             </p>
           </div>
           
@@ -248,7 +257,14 @@ const ClixSection = () => {
         {/* Growth Strategy */}
         <div className="mb-20">
           <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-gray-900 mb-6">Ambitious Growth Vision</h3>
+            <h3 className="text-3xl font-bold text-gray-900 mb-6">
+              <button 
+                onClick={openYouthSurgePost} 
+                className="text-gray-900 hover:text-blue-700 underline transition-colors cursor-pointer bg-transparent border-none p-0 font-inherit text-inherit leading-inherit"
+              >
+                Ambitious Growth Vision
+              </button>
+            </h3>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Building the largest community-owned financial ecosystem globally
             </p>

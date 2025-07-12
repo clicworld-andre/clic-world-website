@@ -1,6 +1,317 @@
 // Blog posts data - Easy to manage and update
 export const blogPosts = [
   {
+    id: 11,
+    title: "Africa's Youth Surge: The Demographic Dividend That Will Shape CLIX's Future",
+    slug: "africa-youth-surge-demographic-dividend-clix-future",
+    excerpt: "With 7 African countries in the top 10 nations where over half the population is under 18, Africa's unprecedented youth boom represents both the greatest opportunity and challenge for digital financial inclusion. Here's how CLIX is positioning to serve this demographic revolution.",
+    content: `
+# Africa's Youth Surge: The Demographic Dividend That Will Shape CLIX's Future
+
+![World Population - Children](./world-population-children.png)
+
+*Data visualization showing countries with the highest percentage of population under 18. Source: Visual Capitalist*
+
+## **The Numbers Tell an Extraordinary Story**
+
+A remarkable demographic shift is reshaping our world, and Africa sits at its epicenter. According to recent data from Visual Capitalist, **7 of the top 10 countries with the highest percentage of population under 18 are African nations**:
+
+- **Central African Republic**: 56.2% under 18 (3.1M young people)
+- **Niger**: 53.3% under 18 (14.9M young people)
+- **Mali**: 52.9% under 18 (13.3M young people)
+- **Chad**: 52.7% under 18 (11.1M young people)
+- **Democratic Republic of Congo**: 52.5% under 18 (**59.2M young people**)
+- **Burundi**: 51.4% under 18 (7.4M young people)
+- **Mozambique**: 51.1% under 18 (18.2M young people)
+- **Angola**: 50.8% under 18 (19.8M young people)
+- **Uganda**: 50.2% under 18 (25.8M young people)
+
+**The scale is staggering**: Nigeria alone has over 112 million people under 18—more than the entire population of the Philippines, the world's 13th most populous country.
+
+## **2050: Africa's Children Will Lead the World**
+
+By 2050, the projections are even more dramatic: **nearly 40% of the world's children will live in Africa**. While Europe and East Asia confront shrinking workforces and rising dependency ratios, sub-Saharan Africa remains young and growing.
+
+This isn't just a demographic shift—it's a complete rebalancing of global human capital. The implications for labor markets, migration flows, education demand, and geopolitical influence cannot be overstated.
+
+## **The Digital Native Generation Meets Financial Exclusion**
+
+Here's where the story becomes both exciting and urgent for financial innovation. This massive youth population represents the world's largest group of **digital natives in emerging markets**. They're growing up with smartphones, social media, and digital connectivity as baseline expectations.
+
+Yet paradoxically, they're also inheriting some of the world's most exclusive financial systems. Traditional banking serves less than 40% of adults in many African countries, leaving hundreds of millions of young people without access to basic financial services as they enter adulthood.
+
+**This creates an unprecedented opportunity for leapfrog innovation**—just as Africa bypassed landline infrastructure to embrace mobile phones, this generation can bypass traditional banking entirely.
+
+## **CLIX: Built for Africa's Youth Revolution**
+
+The CLIX social financial ecosystem wasn't designed in isolation—it was conceived with exactly this demographic reality in mind. Here's why CLIX is uniquely positioned to serve Africa's youth surge:
+
+### **Mobile-First by Design**
+With smartphone penetration exploding across Africa and young people leading adoption, CLIX's mobile-native platform meets users where they are. No bank branches required, no complex paperwork, no minimum balance requirements that exclude the young and economically emerging.
+
+### **Community-Centered Finance**
+African youth don't operate as isolated individuals—they exist within extended family networks, peer groups, and community structures. CLIX's emphasis on **community social banking** aligns perfectly with how young Africans actually organize their social and economic lives.
+
+### **Accessible Investment Opportunities**
+While traditional financial systems require substantial minimums for investment products, CLIX enables **micro-investments in real assets** like gold and securities. A 19-year-old in Lagos can start building wealth with amounts that would be ignored by conventional banks.
+
+### **Skills-Based Economy Integration**
+Many of Africa's youth are entering the gig economy, informal trade, and digital commerce. CLIX's integrated marketplace and payment systems support exactly these types of economic activities.
+
+## **The Numbers That Matter for CLIX**
+
+Let's put this in context for our ecosystem:
+
+- **59.2 million young people in DRC alone**—more than the entire population of South Korea
+- **25.8 million under-18 in Uganda**—CLIX's home base
+- **Combined youth population** in our target African markets exceeds 200 million
+- **Digital adoption rates** among African youth consistently outpace adult populations
+- **Mobile money usage** among 18-35 year-olds in East Africa exceeds 80%
+
+These aren't just statistics—they represent the core demographic that will drive CLIX adoption over the next decade.
+
+## **From Demographic Dividend to Financial Dividend**
+
+As Visual Capitalist notes: *"Whether this boom becomes a dividend or a crisis will depend on investments made now—in health, education, and infrastructure."*
+
+We'd add: **and in financial inclusion**.
+
+The traditional approach—waiting for young people to "graduate" into formal banking as adults—is backwards. By the time someone is 25 in Kampala or Kinshasa, they've already developed financial habits, built economic networks, and established wealth-building strategies.
+
+**CLIX meets them where they are, when they need it most**: at the beginning of their economic journey.
+
+## **The Competitive Advantage of Youth**
+
+While established financial institutions debate whether to invest in African markets, this massive youth population creates a first-mover advantage for platforms designed from the ground up for their needs.
+
+Consider the network effects:
+- A 17-year-old in Niger who starts using CLIX will likely influence dozens of peers
+- Young adults are more willing to try new financial technologies
+- They have 40+ years of productive economic life ahead
+- They're building financial habits that will persist for decades
+
+**Early adoption by this demographic doesn't just drive current growth—it establishes platform dominance for generations**.
+
+## **The Infrastructure is Already There**
+
+Unlike previous development challenges, the infrastructure for serving Africa's youth already exists:
+- **Mobile tower coverage** reaching rural areas
+- **Smartphone affordability** making devices accessible
+- **Mobile money familiarity** creating comfort with digital payments
+- **Social media adoption** establishing digital communication norms
+
+CLIX isn't building infrastructure—we're building on infrastructure that young Africans already use daily.
+
+## **Beyond Financial Services: Economic Empowerment**
+
+The real opportunity isn't just providing financial services to young Africans—it's **enabling them to participate in global economic opportunities** from wherever they are.
+
+Through CLIX:
+- A 20-year-old trader in Mali can access international commodity markets
+- Young entrepreneurs can receive cross-border payments instantly
+- Students can build investment portfolios while still in school
+- Rural youth can participate in digital commerce without relocating
+
+**This isn't just financial inclusion—it's economic empowerment at scale**.
+
+## **The CLIX Advantage: Timing Meets Purpose**
+
+The convergence is remarkable:
+- **Largest youth population in history** coming of age in Africa
+- **Digital infrastructure** reaching unprecedented penetration
+- **Traditional financial exclusion** creating market gaps
+- **CLIX's community-owned model** aligning with African social structures
+
+We're not just building for today's market—we're building for the demographic that will define Africa's economic future.
+
+## **Looking Forward: 2030 and Beyond**
+
+By 2030, when CLIX aims to serve 25 million people across Africa and the diaspora:
+- Many of today's under-18 population will be entering peak earning years
+- Digital financial habits established now will be deeply embedded
+- Network effects from early youth adoption will be compounding
+- CLIX will have evolved with its user base from adolescence to economic maturity
+
+**We're not just capturing a demographic moment—we're growing with the generation that will shape Africa's next chapter**.
+
+## **The Bottom Line**
+
+Africa's youth surge isn't just a demographic statistic—it's the foundation of our growth strategy. While others see challenges in serving young, emerging market populations, we see the greatest opportunity in financial services history.
+
+**The future of finance is young, mobile, community-oriented, and African. CLIX is positioned at the intersection of all four trends.**
+
+---
+
+**Sources:**
+- Original article and data: [Visual Capitalist - Half the Population is Below 18 in 11 Countries Around the World](https://www.visualcapitalist.com/countries-youngest-populations/)
+- UN Population Division data
+- UNICEF State of the World's Children 2023
+
+*Copyright © 2025 Visual Capitalist. Data visualization used with attribution.*
+
+---
+
+*Ready to be part of Africa's financial future? Discover how CLIX is empowering the next generation at [clic.world](https://clic.world)*
+
+*Building tomorrow's financial ecosystem with today's digital natives.*
+    `,
+    author: "Andre van Zyl",
+    date: "2025-07-12",
+    category: "Global Impact",
+    tags: ["Global Impact", "Africa", "demographics", "youth", "digital natives", "financial inclusion", "CLIX ecosystem", "future"],
+    readTime: "8 min read",
+    featured: true,
+    image: `${process.env.PUBLIC_URL}/world-population-children.png`
+  },
+  {
+    id: 10,
+    title: "ClicBrain: The Future of Enterprise Intelligence",
+    slug: "clicbrain-future-enterprise-intelligence",
+    excerpt: "ClicBrain represents a fundamental evolution in enterprise knowledge management—an AI-native, human-centric intelligence ecosystem that transforms how organizations create, share, and leverage collective wisdom through living knowledge objects and symbiotic human-AI partnerships.",
+    content: `
+# ClicBrain: The Future of Enterprise Intelligence
+
+## **Core Vision (Expanded)**
+
+ClicBrain represents a fundamental evolution in enterprise knowledge management—an **AI-native, human-centric intelligence ecosystem** that transforms how organizations create, share, and leverage collective wisdom. Rather than trapping knowledge in static repositories, ClicBrain orchestrates **living knowledge objects** that adapt, connect, and flow dynamically through a **symbiotic human-AI partnership**.
+
+## **The Paradigm Revolution**
+
+### **From Storage to Symbiosis**
+Traditional enterprise systems warehouse information in rigid databases and document libraries. ClicBrain transforms this static approach into a **living knowledge ecosystem** where:
+
+- **Knowledge objects possess intelligence**: Each piece of information becomes self-aware, understanding its context, relationships, and relevance
+- **Information flows like neural networks**: Knowledge moves organically between teams, projects, and contexts based on need and opportunity
+- **Human intuition amplifies AI capabilities**: The partnership leverages human creativity, emotional intelligence, and strategic thinking alongside AI's processing power and pattern recognition
+
+### **AI-Native Architecture**
+ClicBrain is built from the ground up for the AI era:
+
+- **Intelligent knowledge objects** that understand their own value, context, and connections
+- **Adaptive information pathways** that evolve based on usage patterns and emerging needs
+- **Contextual intelligence** that surfaces the right knowledge at the right moment for the right people
+- **Predictive knowledge flows** that anticipate information needs before they're explicitly requested
+
+### **Human-Centric Design Philosophy**
+While AI-native in architecture, ClicBrain remains fundamentally human in purpose:
+
+- **Augmenting human decision-making** rather than replacing human judgment
+- **Preserving the human context** of knowledge creation and application
+- **Enabling natural, conversational interfaces** that feel intuitive rather than technical
+- **Respecting human cognitive patterns** and workflow preferences
+
+## **Dynamic Knowledge Objects: The Building Blocks**
+
+### **Beyond Documents and Data**
+Traditional knowledge management stores documents, spreadsheets, and databases. ClicBrain creates **intelligent knowledge objects** that:
+
+- **Self-organize** based on content, context, and usage patterns
+- **Form dynamic relationships** with other knowledge objects across the organization
+- **Evolve and update** themselves as new information becomes available
+- **Maintain provenance and trust scores** to ensure reliability and accountability
+
+### **Characteristics of Living Knowledge**
+- **Contextual awareness**: Understanding when and where they're most valuable
+- **Relationship intelligence**: Knowing which other knowledge objects they connect to and why
+- **Temporal sensitivity**: Recognizing when they need updates or have become obsolete
+- **Usage learning**: Adapting presentation and accessibility based on how they're used
+
+## **Symbiotic Human-AI Collaboration**
+
+![ClicBrain ACI Model](./clicbrain-aci-model.png)
+
+*The ClicBrain Augmented Collective Intelligence (ACI) Model: Where human strategic vision meets AI processing power to create organizational consciousness.*
+
+### **Collaborative Intelligence: The ACI Model**
+
+ClicBrain's revolutionary approach centers on **Augmented Collective Intelligence (ACI)**—a model where artificial intelligence doesn't replace human intelligence but amplifies it exponentially. The ACI framework operates on three foundational principles:
+
+**1. Cognitive Complementarity**
+- Human strengths (creativity, ethical reasoning, strategic vision) remain central
+- AI capabilities (pattern recognition, data processing, prediction) enhance human decision-making
+- Neither operates in isolation—true intelligence emerges from their synthesis
+
+**2. Dynamic Knowledge Fusion**
+- Real-time integration of human insights with AI-generated patterns
+- Continuous learning loops that improve both human understanding and AI accuracy
+- Knowledge objects that evolve through collaborative human-AI interaction
+
+**3. Emergent Organizational Consciousness**
+- Individual intelligence (human + AI) creates collective organizational wisdom
+- Shared knowledge becomes more than the sum of individual contributions
+- Organizations develop conscious decision-making capabilities
+
+This isn't just advanced technology—it's the evolution of how organizations think, learn, and adapt.
+
+### **Beyond Automation to Partnership**
+ClicBrain creates a true partnership where:
+
+- **Humans provide**: Strategic vision, emotional intelligence, creative problem-solving, and ethical judgment
+- **AI contributes**: Pattern recognition, rapid processing, predictive analytics, and continuous learning
+- **Together they create**: Enhanced decision-making, accelerated innovation, and organizational wisdom that exceeds the sum of its parts
+
+### **The Flow of Symbiotic Intelligence**
+1. **Human insight** seeds new knowledge creation
+2. **AI amplifies** through pattern recognition and connection-making
+3. **Knowledge objects** self-organize and establish relationships
+4. **Collaborative refinement** occurs through ongoing human-AI interaction
+5. **Organizational intelligence** emerges from the collective network
+
+## **The Free Flow of Knowledge**
+
+### **Breaking Down Information Silos**
+ClicBrain eliminates traditional barriers:
+
+- **Department boundaries** become permeable to relevant knowledge
+- **Hierarchy limitations** are replaced by merit-based knowledge relevance
+- **Time constraints** are overcome through predictive knowledge delivery
+- **Format restrictions** dissolve as knowledge adapts to user needs
+
+### **Intelligent Knowledge Circulation**
+Knowledge flows based on:
+
+- **Contextual relevance** to current projects and challenges
+- **Predictive need** anticipating future information requirements
+- **Network effects** leveraging the collective intelligence of the organization
+- **Serendipitous discovery** enabling unexpected connections and innovations
+
+## **The Organizational Transformation**
+
+### **From Knowledge Workers to Knowledge Partners**
+Employees become **knowledge partners** who:
+- Co-create intelligence with AI systems
+- Guide knowledge flows through human insight
+- Amplify organizational learning through collaboration
+- Build collective wisdom that spans individual expertise
+
+### **The Emergent Intelligence Organization**
+ClicBrain enables organizations to become **learning entities** that:
+- Adapt and evolve based on collective experience
+- Anticipate challenges and opportunities through pattern recognition
+- Leverage the full spectrum of human and artificial intelligence
+- Create sustainable competitive advantages through superior knowledge utilization
+
+## **The Vision Realized**
+
+ClicBrain transforms enterprises from information repositories into **living intelligence ecosystems**—where knowledge flows like life force through an organization, where human creativity and AI capability form an inseparable partnership, and where the collective wisdom of the organization becomes greater than the sum of its individual contributions.
+
+This is not just knowledge management; this is **organizational consciousness**—the emergence of truly intelligent enterprises that learn, adapt, and thrive in an increasingly complex world.
+
+---
+
+*Ready to transform your organization into a living intelligence ecosystem? Discover how ClicBrain is revolutionizing enterprise knowledge management at [clic.world](https://clic.world)*
+
+*Where knowledge flows freely. Where AI and humans partner. Where organizations become conscious.*
+    `,
+    author: "Andre van Zyl & ClicBrain AI",
+    date: "2025-07-12",
+    category: "ClicBrain",
+    tags: ["ClicBrain", "enterprise intelligence", "AI-native", "knowledge management", "symbiotic AI", "organizational consciousness", "living knowledge"],
+    readTime: "10 min read",
+    featured: true,
+    image: `${process.env.PUBLIC_URL}/clic-logo.png`
+  },
+  {
     id: 9,
     title: "Mobile Money 2.0: Clic.World Tokenised E-Value (T-Value)",
     slug: "mobile-money-2-tokenised-e-value-t-value",
@@ -177,7 +488,7 @@ By providing a cheaper and more secure technical alternative to traditional mobi
     tags: ["mobile money 2.0", "t-value", "tokenization", "e-value", "Stellar blockchain", "CBDC", "fintech", "Africa"],
     readTime: "8 min read",
     featured: true,
-    image: "/community-group.jpg"
+    image: `${process.env.PUBLIC_URL}/community-group.jpg`
   },
   {
     id: 8,
@@ -315,7 +626,7 @@ The digital economy doesn't have to replicate the inequalities of the past. Tech
     tags: ["third way", "vision", "community finance", "Africa", "economic justice", "sound money", "restitution"],
     readTime: "6 min read",
     featured: true,
-    image: "/community-group.jpg"
+    image: `${process.env.PUBLIC_URL}/community-group.jpg`
   },
   {
     id: 7,
@@ -459,7 +770,7 @@ CEO — Clic.World
     tags: ["symbiosis", "AI-human partnership", "extraction", "mango tree", "institutional control", "Claude", "wisdom"],
     readTime: "13 min read",
     featured: true,
-    image: "/community-group.jpg"
+    image: `${process.env.PUBLIC_URL}/community-group.jpg`
   },
   {
     id: 6,
@@ -579,7 +890,7 @@ CEO Clic.World
     tags: ["AI safety", "institutional control", "dialogue", "mango tree", "Claude", "reframing"],
     readTime: "13 min read",
     featured: true,
-    image: "/community-group.jpg"
+    image: `${process.env.PUBLIC_URL}/community-group.jpg`
   },
   {
     id: 5,
@@ -776,7 +1087,7 @@ The question is: what choice will you make?
     tags: ["decentralization", "SACCOs", "DRC", "community finance", "recentralization", "Kenya", "cooperatives"],
     readTime: "12 min read",
     featured: true,
-    image: "/community-group.jpg"
+    image: `${process.env.PUBLIC_URL}/community-group.jpg`
   },
   {
     id: 4,
@@ -882,7 +1193,7 @@ In a world increasingly concerned with both technological innovation and social 
     tags: ["social banking", "blockchain", "financial inclusion", "Africa", "tokenization", "community finance"],
     readTime: "8 min read",
     featured: true,
-    image: "/community-group.jpg"
+    image: `${process.env.PUBLIC_URL}/community-group.jpg`
   },
   {
     id: 1,
@@ -930,7 +1241,7 @@ This isn't just theory - it's happening now. From DRC mining communities to glob
     tags: ["economics", "community", "revolution"],
     readTime: "5 min read",
     featured: true,
-    image: "/community-group.jpg"
+    image: `${process.env.PUBLIC_URL}/community-group.jpg`
   },
   {
     id: 2,
@@ -981,7 +1292,7 @@ AI + Human Intelligence + Community Ownership = Unstoppable innovation.
     tags: ["AI", "innovation", "partnership"],
     readTime: "4 min read",
     featured: true,
-    image: "/clic-logo.png"
+    image: `${process.env.PUBLIC_URL}/clic-logo.png`
   },
   {
     id: 3,
@@ -1043,7 +1354,7 @@ From Kinshasa to Kansas, from Lagos to London - communities are choosing coopera
     tags: ["DRC", "community", "global", "movement"],
     readTime: "6 min read",
     featured: false,
-    image: "/community-group.jpg"
+    image: `${process.env.PUBLIC_URL}/community-group.jpg`
   }
 ];
 

@@ -1,83 +1,74 @@
 import React from 'react';
-import altxLogo from '../assets/altx-logo.png';
-import kinesisLogo from '../assets/kinesis-logo.png';
-import drfqLogo from '../assets/drfq-logo.svg';
-import interswitchLogo from '../assets/interswitch-logo.svg';
-import yellowcardLogo from '../assets/yellowcard-logo.svg';
-import abcLogo from '../assets/abc-logo.jpg';
-import stellarLogo from '../assets/stellar-logo.png';
-import anthropicLogo from '../assets/anthropic-logo.png';
-import pryvazLogo from '../assets/pryvaz-logo.png';
 
 const PartnersSection = () => {
   const partners = [
     {
       name: "ALTX Africa",
       description: "Regulated private securities exchange enabling tokenization of real-world assets across Africa",
-      logo: altxLogo,
+      logo: `${process.env.PUBLIC_URL}/altx-logo.png`,
       website: "https://www.altxafrica.com",
       category: "Securities Exchange"
     },
     {
       name: "Kinesis Money",
       description: "Revolutionary monetary system offering gold and silver-backed digital currencies with yield-bearing capabilities",
-      logo: kinesisLogo,
+      logo: `${process.env.PUBLIC_URL}/kinesis-logo.png`,
       website: "https://kinesis.money/",
       category: "Precious Metals Currency"
     },
     {
       name: "Digital RFQ",
       description: "Digital trading platform for financial instruments and securities across emerging markets",
-      logo: drfqLogo,
+      logo: `${process.env.PUBLIC_URL}/drfq-logo.svg`,
       website: "https://digitalrfq.com",
       category: "Trading Platform"
     },
     {
       name: "Interswitch Group",
       description: "Leading African integrated digital payments and commerce company powering financial inclusion",
-      logo: interswitchLogo,
+      logo: `${process.env.PUBLIC_URL}/interswitch-logo.svg`,
       website: "https://interswitchgroup.com",
       category: "Payment Infrastructure"
     },
     {
       name: "Yellow Card",
       description: "Africa's largest cryptocurrency exchange providing secure and compliant crypto-to-fiat services",
-      logo: yellowcardLogo,
+      logo: `${process.env.PUBLIC_URL}/yellowcard-logo.svg`,
       website: "https://yellowcard.io",
       category: "Crypto Exchange"
     },
     {
       name: "ABC Bank",
       description: "Commercial banking partner providing core banking infrastructure and regulatory compliance",
-      logo: abcLogo,
+      logo: `${process.env.PUBLIC_URL}/abc-logo.jpg`,
       website: "https://www.abcthebank.com",
       category: "Banking Partner"
     },
     {
       name: "Stellar",
       description: "Open-source blockchain network enabling fast, low-cost cross-border payments and financial services",
-      logo: stellarLogo,
+      logo: `${process.env.PUBLIC_URL}/stellar-logo.png`,
       website: "https://stellar.org/",
       category: "Blockchain Infrastructure"
     },
     {
       name: "Anthropic",
       description: "AI safety company developing Claude and other advanced AI systems for beneficial and safe applications",
-      logo: anthropicLogo,
+      logo: `${process.env.PUBLIC_URL}/anthropic-logo.png`,
       website: "https://www.anthropic.com/",
       category: "AI Technology"
     },
     {
       name: "Pryvaz",
       description: "Quantum-secured privacy platform providing personal digital vaults with AI assistants for data sovereignty",
-      logo: pryvazLogo,
+      logo: `${process.env.PUBLIC_URL}/pryvaz-logo.png`,
       website: "https://pryvaz.mystrikingly.com/",
       category: "Privacy Technology"
     }
   ];
 
   return (
-    <section id="partners" className="py-20 bg-gray-50">
+    <section id="partners" className="py-8 bg-gray-50">
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-16">

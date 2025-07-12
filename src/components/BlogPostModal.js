@@ -40,7 +40,43 @@ const BlogPostModal = ({ post, isOpen, onClose }) => {
         {/* Content */}
         <div className="overflow-y-auto max-h-[60vh] p-8">
           <div className="prose prose-lg max-w-none">
-            {post.content.split('\n').map((paragraph, index) => {
+            {post.content.split('\n').map((paragraph, index, array) => {
+              // Handle images
+              if (paragraph.match(/!\[.*?\]\(.*?\)/)) {
+                const imageMatch = paragraph.match(/!\[(.*?)\]\((.*?)\)/);
+                if (imageMatch) {
+                  const altText = imageMatch[1];
+                  const imageSrc = imageMatch[2];
+                  // Convert relative paths to use PUBLIC_URL
+                  const fullImageSrc = imageSrc.startsWith('./') 
+                    ? `${process.env.PUBLIC_URL}/${imageSrc.slice(2)}`
+                    : imageSrc;
+                  
+                  // Check if next line is a caption (starts with * but isn't bold)
+                  const nextLine = array[index + 1];
+                  const isCaption = nextLine && nextLine.startsWith('*') && !nextLine.startsWith('**') && nextLine.endsWith('*');
+                  
+                  return (
+                    <div key={index} className="my-6">
+                      <img 
+                        src={fullImageSrc}
+                        alt={altText}
+                        className="w-full h-auto rounded-lg shadow-lg"
+                      />
+                      {isCaption && (
+                        <p className="text-sm text-gray-600 italic mt-2 text-center">
+                          {nextLine.slice(1, -1)}
+                        </p>
+                      )}
+                    </div>
+                  );
+                }
+              }
+              // Skip caption lines as they're handled with images
+              if (index > 0 && array[index - 1] && array[index - 1].match(/!\[.*?\]\(.*?\)/) && 
+                  paragraph.startsWith('*') && !paragraph.startsWith('**') && paragraph.endsWith('*')) {
+                return null;
+              }
               if (paragraph.startsWith('# ')) {
                 return <h1 key={index} className="text-3xl font-bold text-gray-900 mt-8 mb-4">{paragraph.slice(2)}</h1>;
               } else if (paragraph.startsWith('## ')) {

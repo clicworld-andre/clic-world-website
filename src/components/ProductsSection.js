@@ -7,10 +7,10 @@ const ProductsSection = () => {
     {
       icon: '🏦',
       title: 'CLIX Platform',
-      positioning: 'Your all-in-one financial companion—decentralized, community-powered, and gold-backed.',
-      description: 'A Stellar-based decentralized virtual asset investment exchange integrating social banking and a multi-wallet Social Financial app.',
+      positioning: 'Your all-in-one financial companion—decentralised, community-powered, and gold-backed.',
+      description: 'A Stellar-based decentralised virtual asset investment exchange integrating social banking and a multi-wallet Social Financial app.',
       features: [
-        'Decentralized Exchange: Trade CLIX tokens, KAU (gold), KAG (silver), and approved assets (Stellar, Polygon, Ethereum)',
+        'Decentralised Exchange: Trade CLIX tokens, KAU (gold), KAG (silver), and approved assets (Stellar, Polygon, Ethereum)',
         'Social Banking System: AI-driven micro core banking for communities—real-time savings, loans, and account management',
         'Multi-Wallet Support: Stellar, Polygon, Ethereum for comprehensive asset management',
         'Merchant payments, P2P transfers, cross-border remittances, asset swaps, bill payments',
@@ -21,17 +21,17 @@ const ProductsSection = () => {
     },
     {
       icon: '🛒',
-      title: 'Decentralized e-Commerce Marketplace',
+      title: 'Decentralised e-Commerce Marketplace',
       positioning: 'Shop local, trade global—powered by trust and community.',
       description: 'A peer-to-peer marketplace for communities to buy, sell, and trade goods/services using CLIX, KAU, KAG, or fiat equivalents.',
       features: [
         'Local and global listings with KYC-verified sellers',
         'Payment options: CLIX, crypto swaps, or remittances via Stellar',
         'Community ratings and reviews tied to "Clic Trust Rating"',
-        'Decentralized escrow and dispute resolution',
+        'Decentralised escrow and dispute resolution',
         'Integration with value chain management for direct producer sales'
       ],
-      valueProposition: 'A safe, decentralized alternative to corporate e-commerce giants, keeping wealth within communities.'
+      valueProposition: 'A safe, decentralised alternative to corporate e-commerce giants, keeping wealth within communities.'
     },
     {
       icon: '💼',
@@ -42,7 +42,7 @@ const ProductsSection = () => {
         'Comprehensive accounts, payroll, stock, and inventory management',
         'Supply chain tracking with blockchain transparency',
         'CLIX-based payments and trade finance options',
-        'Integration with decentralized marketplace for sales',
+        'Integration with decentralised marketplace for sales',
         'AI-powered business analytics and growth recommendations'
       ],
       valueProposition: 'Empowers SMEs with enterprise-grade tools at micro-scale costs, integrated with the CLIX financial ecosystem.'
@@ -59,13 +59,13 @@ const ProductsSection = () => {
         'Trade finance: Access loans or bonds using CLIX collateral',
         'Weather API integration for agricultural risk management'
       ],
-      valueProposition: 'Optimizes agricultural and industrial value chains, critical for Africa\'s $1T agro-economy (FAO 2025 est.).'
+      valueProposition: 'Optimises agricultural and industrial value chains, critical for Africa\'s $1T agro-economy (FAO 2025 est.).'
     },
     {
       icon: '🎓',
       title: 'Online Education and E-Learning Platform',
-      positioning: 'Learn today, lead tomorrow—education for a decentralized world.',
-      description: 'A decentralized learning hub offering courses on finance, entrepreneurship, and sustainability.',
+      positioning: 'Learn today, lead tomorrow—education for a decentralised world.',
+      description: 'A decentralised learning hub offering courses on finance, entrepreneurship, and sustainability.',
       features: [
         'Free and paid courses payable in CLIX or KAU/KAG',
         'Certifications tied to "OneClicID" for lifelong credentials',
@@ -97,14 +97,13 @@ const ProductsSection = () => {
   };
 
   return (
-    <section id="products" className="py-20 bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 text-white">
+    <section id="products" className="py-8 bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 text-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4">Complete Ecosystem Solutions</h2>
-          <div className="w-24 h-1 bg-yellow-400 mx-auto mb-8"></div>
+          <h2 className="text-4xl font-bold mb-4">SoFi Eco-System: Complete End-to-End Solution</h2>
           <p className="text-xl text-white/90 max-w-4xl mx-auto">
             Six interconnected products that power the future of community-owned finance—
-            from local banking to global AI intelligence, all built on the CLIX ecosystem.
+            from local banking to global AI intelligence.
           </p>
         </div>
 

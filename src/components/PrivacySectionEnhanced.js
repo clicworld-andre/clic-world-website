@@ -5,37 +5,31 @@ const PrivacySectionEnhanced = () => {
 
   const features = [
     {
-      icon: "🔐",
       title: "Complete Data Ownership",
       description: "Your data never leaves your personal vault. You own it, control it, and decide what happens with it.",
       details: "Unlike traditional platforms where your data powers their AI, your vault keeps everything under your control."
     },
     {
-      icon: "🤖",
       title: "Private AI Assistant", 
       description: "Your personal AI learns from all your Clic interactions without ever exposing your data externally.",
       details: "Advanced AI processing happens locally within your quantum-secured vault environment."
     },
     {
-      icon: "⚡",
       title: "Quantum Security",
       description: "Military-grade quantum-resistant encryption protects your vault with unbreakable security.",
       details: "True quantum random number generation creates encryption keys that protect against future quantum computing threats."
     },
     {
-      icon: "🎯",
       title: "Selective Sharing",
       description: "Choose exactly what data each application can access. Grant or revoke permissions instantly.",
       details: "Granular control over data access with real-time permission management for all connected applications."
     },
     {
-      icon: "🚀",
       title: "Portable Freedom",
       description: "Your vault is portable. Move it anywhere, anytime. Never be locked into any platform again.",
       details: "Complete data portability ensures you're never dependent on any single platform or provider."
     },
     {
-      icon: "💰",
       title: "Your Monetization",
       description: "Keep 100% privacy or choose to monetize your data on YOUR terms. You decide, you profit.",
       details: "Retain full control over data monetization opportunities while maintaining complete privacy protection."
@@ -62,32 +56,21 @@ const PrivacySectionEnhanced = () => {
   ];
 
   return (
-    <section id="pryvaz" className="py-20 bg-gray-50">
+    <section id="pryvaz" className="py-8 bg-gray-50">
       <div className="container mx-auto px-4">
         
         {/* Hero Section */}
         <div className="text-center mb-20">
-          <h2 className="text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">
             Your Personal Privacy Vault
           </h2>
-          <div className="w-24 h-1 bg-blue-600 mx-auto mb-8"></div>
-          <p className="text-2xl text-gray-700 max-w-4xl mx-auto mb-8 leading-relaxed">
-            The first platform where you truly own your data, control your AI, and decide your digital destiny. 
-            Where <strong className="text-blue-600">Your data stays in YOUR quantum-secured vault and YOUR AI</strong> processes <strong className="text-green-700">YOUR data</strong> in <strong className="text-green-700">YOUR secure space.</strong>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8 leading-relaxed">
+            The first platform where you truly own your data, control your AI, and decide your digital destiny. Where your data stays in your own quantum-secured vault and your AI processes your own data inside your secure space. Experience true digital sovereignty with quantum-secured personal data vaults and integrated AI
           </p>
         </div>
 
         {/* Features Section */}
         <div className="mb-20">
-          <div className="text-center mb-16">
-            <h3 className="text-3xl font-bold text-gray-900 mb-4">
-              Why Clic Personal Data Vault?
-            </h3>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Experience true digital sovereignty with quantum-secured personal data vaults and integrated AI
-            </p>
-          </div>
-
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
             {features.map((feature, index) => (
               <div 
@@ -97,7 +80,6 @@ const PrivacySectionEnhanced = () => {
                 }`}
                 onClick={() => setActiveFeature(index)}
               >
-                <div className="text-4xl mb-4">{feature.icon}</div>
                 <h4 className="text-xl font-bold text-gray-900 mb-3">{feature.title}</h4>
                 <p className="text-gray-600 mb-4">{feature.description}</p>
                 {activeFeature === index && (
@@ -151,7 +133,15 @@ const PrivacySectionEnhanced = () => {
         <div className="mb-20">
           <div className="text-center mb-16">
             <h3 className="text-3xl font-bold text-gray-900 mb-4">
-              Patented Quantum Security
+              <a 
+                href="/secure-portable-vault-patent.pdf" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-gray-900 hover:text-blue-600 transition-colors duration-200 border-b-2 border-transparent hover:border-blue-600"
+                title="View Patent Document: Secure Private Portable Vault Container"
+              >
+                Patented Quantum Security
+              </a>
             </h3>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Your vault is protected by the most advanced security technology available
@@ -178,7 +168,7 @@ const PrivacySectionEnhanced = () => {
         {/* Beta Notice */}
         <div className="text-center bg-blue-50 border border-blue-200 rounded-2xl p-8">
           <p className="text-lg text-blue-800 italic">
-            *The Clic Data Privacy Vault is a CLIX Premium value added product. It is currently in beta testing and final pricing (in CLIX) will be announced soon.
+            *The Clic Data Privacy Vault is a CLIX Premium value added product offered in partnership with PRYVAZ. It is currently in beta testing and final pricing (in CLIX) will be announced soon.
           </p>
         </div>
       </div>
