@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import PatentModal from './PatentModal';
 
 const PrivacySectionEnhanced = () => {
   const [activeFeature, setActiveFeature] = useState(0);
+  const [isPatentModalOpen, setIsPatentModalOpen] = useState(false);
 
   const features = [
     {
@@ -133,15 +135,13 @@ const PrivacySectionEnhanced = () => {
         <div className="mb-20">
           <div className="text-center mb-16">
             <h3 className="text-3xl font-bold text-gray-900 mb-4">
-              <a 
-                href="/secure-portable-vault-patent.pdf" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-gray-900 hover:text-blue-600 transition-colors duration-200 border-b-2 border-transparent hover:border-blue-600"
+              <button 
+                onClick={() => setIsPatentModalOpen(true)}
+                className="text-gray-900 hover:text-blue-600 transition-colors duration-200 border-b-2 border-transparent hover:border-blue-600 cursor-pointer bg-transparent border-none p-0 font-inherit text-inherit"
                 title="View Patent Document: Secure Private Portable Vault Container"
               >
                 Patented Quantum Security
-              </a>
+              </button>
             </h3>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Your vault is protected by the most advanced security technology available
@@ -172,6 +172,12 @@ const PrivacySectionEnhanced = () => {
           </p>
         </div>
       </div>
+
+      {/* Patent Modal */}
+      <PatentModal 
+        isOpen={isPatentModalOpen}
+        onClose={() => setIsPatentModalOpen(false)}
+      />
     </section>
   );
 };
