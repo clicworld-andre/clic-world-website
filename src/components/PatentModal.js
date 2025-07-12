@@ -32,7 +32,7 @@ const PatentModal = ({ isOpen, onClose }) => {
         {/* PDF Content */}
         <div className="h-[80vh] overflow-hidden">
           <iframe
-            src="/secure-portable-vault-patent.pdf"
+            src={`/secure-portable-vault-patent.pdf?v=${Date.now()}`}
             className="w-full h-full border-0"
             title="US Patent 11,562,060 B2 - Secure Private Portable Vault Container"
           />
@@ -42,7 +42,7 @@ const PatentModal = ({ isOpen, onClose }) => {
         <div className="bg-gray-50 p-4 text-center">
           <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
             <a 
-              href="/secure-portable-vault-patent.pdf" 
+              href={`/secure-portable-vault-patent.pdf?v=${Date.now()}`}
               target="_blank" 
               rel="noopener noreferrer"
               className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-semibold transition-colors"
