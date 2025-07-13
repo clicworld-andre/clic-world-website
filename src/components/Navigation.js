@@ -63,7 +63,7 @@ const Navigation = ({ clixPriceUSD, clixPriceXLM, xlmToUSD, activeSection, scrol
             {[
               { id: 'about', label: 'Movement' },
               { id: 'clix', label: 'CLIX' },
-              { id: 'products', label: 'Products' },
+              { id: 'products', label: 'Solutions' },
               { id: 'clicbrain', label: 'ClicBrain' },
               { id: 'pryvaz', label: 'Privacy Vault' },
               { id: 'blog', label: 'Blog' },
