@@ -10,27 +10,65 @@ import AboutSectionEnhanced from './AboutSectionEnhanced';
 import PartnersSection from './PartnersSection';
 import ContactSection from './ContactSection';
 import Footer from './Footer';
+import useClixPriceDual from '../hooks/useClixPriceDual';
+import bitqueryService from '../services/BitqueryService';
+import DebugInfo from './DebugInfo';
 
 const ClicWorldWebsite = () => {
-  const [clixPrice, setClixPrice] = useState(2.47);
   const [activeSection, setActiveSection] = useState('home');
   const [isScrolling, setIsScrolling] = useState(false);
+  
+  // Use the dual price service with USD and XLM pricing
+  const { 
+    priceUSD: clixPriceUSD,
+    priceXLM: clixPriceXLM,
+    xlmToUSD,
+    isLoading: priceLoading, 
+    error: priceError, 
+    isConnected: priceConnected,
+    activeService,
+    refreshPrice
+  } = useClixPriceDual({
+    enableRealTime: true,
+    pollInterval: 30000, // 30 second fallback for Horizon
+    preferredService: 'horizon', // Force Horizon API to avoid CORS issues
+    onError: (error, serviceName) => console.error(`💰 ${serviceName} Error:`, error)
+  });
+
+  // Initialize Bitquery service on component mount
+  useEffect(() => {
+    // Initialize with API key from environment variable
+    const apiKey = process.env.REACT_APP_BITQUERY_API_KEY;
+    if (apiKey) {
+      bitqueryService.initialize(apiKey);
+      console.log('🔑 Bitquery service initialized');
+
+      // Set CLIX token configuration
+      const assetCode = process.env.REACT_APP_CLIX_ASSET_CODE || 'CLIX';
+      const issuer = process.env.REACT_APP_CLIX_ISSUER || '';
+      bitqueryService.setClixTokenConfig(assetCode, issuer);
+      console.log('🪙 CLIX token config set:', { assetCode, issuer: issuer.slice(0, 10) + '...' });
+    } else {
+      console.warn('⚠️ REACT_APP_BITQUERY_API_KEY not found in environment variables');
+      console.log('💡 Add your Bitquery API key to .env file as REACT_APP_BITQUERY_API_KEY=your_key_here');
+      console.log('🔄 Falling back to simulation mode');
+    }
+  }, []);
   
   // Debug: Log whenever activeSection changes
   useEffect(() => {
     console.log(`🔄 ActiveSection changed to: ${activeSection}`);
   }, [activeSection]);
-  // const [showThirdWayModal, setShowThirdWayModal] = useState(false);
 
-  // Live CLIX price simulation
+  // Debug: Log price updates
   useEffect(() => {
-    const interval = setInterval(() => {
-      const basePrice = 2.47;
-      const variation = (Math.random() - 0.5) * 0.1;
-      setClixPrice((basePrice + variation).toFixed(2));
-    }, 5000);
-    return () => clearInterval(interval);
-  }, []);
+    if (priceConnected) {
+      console.log('🟢 Real-time price connection established');
+    }
+    if (priceError) {
+      console.log('🟡 Using fallback price due to:', priceError);
+    }
+  }, [priceConnected, priceError]);
 
   // Enhanced scroll detection for navigation
   useEffect(() => {
@@ -50,6 +88,7 @@ const ClicWorldWebsite = () => {
         }
         return false;
       });
+      
       if (current && current !== activeSection) {
         console.log(`📜 SCROLL DETECTION: Changing from ${activeSection} to ${current}`);
         setActiveSection(current);
@@ -60,68 +99,107 @@ const ClicWorldWebsite = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [activeSection, isScrolling]);
 
+  // Enhanced scroll to section function
   const scrollToSection = (sectionId) => {
     console.log(`➡️ ScrollToSection called for: ${sectionId}`);
-    
-    // Set scrolling flag to disable scroll detection
-    setIsScrolling(true);
     
     const element = document.getElementById(sectionId);
     if (element) {
       console.log(`🎯 Element found for ${sectionId}`);
-      const navbarHeight = 140;
-      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
-      const offsetPosition = elementPosition - navbarHeight;
       
-      console.log(`📜 Starting scroll to position: ${offsetPosition}`);
+      // Disable scroll detection during programmatic scroll
+      setIsScrolling(true);
+      
+      const offsetTop = element.offsetTop - 100; // Account for fixed nav
+      console.log(`📜 Starting scroll to position: ${offsetTop}`);
+      
       window.scrollTo({
-        top: offsetPosition,
+        top: offsetTop,
         behavior: 'smooth'
       });
       
-      // Re-enable scroll detection after scrolling completes
+      // Re-enable scroll detection after scroll completes
       setTimeout(() => {
         console.log(`✅ Scroll complete, re-enabling scroll detection`);
         setIsScrolling(false);
-      }, 1000); // Give enough time for smooth scroll to complete
-      
+      }, 1000);
     } else {
-      console.log(`❌ Element NOT found for ${sectionId}`);
-      setIsScrolling(false);
+      console.error(`❌ Element not found for section: ${sectionId}`);
     }
   };
 
   return (
     <div className="min-h-screen bg-white">
       <Navigation 
-        clixPrice={clixPrice}
+        clixPriceUSD={clixPriceUSD}
+        clixPriceXLM={clixPriceXLM}
+        xlmToUSD={xlmToUSD}
         activeSection={activeSection}
         scrollToSection={scrollToSection}
         setActiveSection={setActiveSection}
       />
       
-      <HeroSection 
-        clixPrice={clixPrice}
-        scrollToSection={scrollToSection}
-      />
-      
-      <AboutSectionEnhanced />
-      
-      <ProductsSection />
-      
-      <ClixSection />
-      
-      <ClicBrainSection scrollToSection={scrollToSection} />
-      
-      <PrivacySectionEnhanced />
-      
-      <BlogSection />
-      
-      <PartnersSection />
-      
-      <ContactSection />
+      <main>
+        <section id="home">
+          <HeroSection 
+            clixPriceUSD={clixPriceUSD} 
+            clixPriceXLM={clixPriceXLM}
+            xlmToUSD={xlmToUSD}
+            scrollToSection={scrollToSection} 
+          />
+        </section>
+        
+        <section id="about">
+          <AboutSectionEnhanced />
+        </section>
+        
+        <section id="products">
+          <ProductsSection />
+        </section>
+        
+        <section id="clix">
+          <ClixSection 
+            clixPriceUSD={clixPriceUSD}
+            clixPriceXLM={clixPriceXLM}
+            xlmToUSD={xlmToUSD}
+          />
+        </section>
+        
+        <section id="clicbrain">
+          <ClicBrainSection />
+        </section>
+        
+        <section id="pryvaz">
+          <PrivacySectionEnhanced />
+        </section>
+        
+        <section id="blog">
+          <BlogSection />
+        </section>
+        
+        <section id="partners">
+          <PartnersSection />
+        </section>
+        
+        <section id="contact">
+          <ContactSection />
+        </section>
+      </main>
       
       <Footer />
+
+      {/* Debug Info Component */}
+      <DebugInfo />
+
+      {/* Development helper - shows connection status */}
+      {process.env.NODE_ENV === 'development' && (
+        <div className="fixed bottom-4 right-4 bg-gray-800 text-white p-2 rounded text-xs">
+          CLIX: {clixPriceUSD ? `${clixPriceUSD}` : 'N/A'} | {clixPriceXLM ? `${clixPriceXLM} XLM` : 'N/A'}
+          {priceLoading && ' [Loading]'}
+          {priceConnected && ' [Connected]'}
+          {priceError && ' [Error]'}
+        </div>
+      )}
     </div>
   );
 };

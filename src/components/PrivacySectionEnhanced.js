@@ -137,7 +137,7 @@ const PrivacySectionEnhanced = () => {
             <h3 className="text-3xl font-bold text-gray-900 mb-4">
               <button 
                 onClick={() => setIsPatentModalOpen(true)}
-                className="text-gray-900 hover:text-blue-600 transition-colors duration-200 border-b-2 border-transparent hover:border-blue-600 cursor-pointer bg-transparent border-none p-0 font-inherit text-inherit"
+                className="text-gray-900 hover:text-blue-600 transition-colors duration-200 cursor-pointer bg-transparent p-0 font-inherit text-inherit underline decoration-blue-500 decoration-2 underline-offset-4"
                 title="View Patent Document: Secure Private Portable Vault Container"
               >
                 Patented Quantum Security

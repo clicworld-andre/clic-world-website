@@ -2,948 +2,970 @@
 > clic-world-website@1.0.0 start
 > react-scripts start
 
-(node:61101) [DEP_WEBPACK_DEV_SERVER_ON_AFTER_SETUP_MIDDLEWARE] DeprecationWarning: 'onAfterSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+(node:76988) [DEP_WEBPACK_DEV_SERVER_ON_AFTER_SETUP_MIDDLEWARE] DeprecationWarning: 'onAfterSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
 (Use `node --trace-deprecation ...` to show where the warning was created)
-(node:61101) [DEP_WEBPACK_DEV_SERVER_ON_BEFORE_SETUP_MIDDLEWARE] DeprecationWarning: 'onBeforeSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+(node:76988) [DEP_WEBPACK_DEV_SERVER_ON_BEFORE_SETUP_MIDDLEWARE] DeprecationWarning: 'onBeforeSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
 Starting the development server...
 
 Compiled successfully!
 
 You can now view clic-world-website in the browser.
 
-  Local:            http://localhost:3002/clic-world-website
-  On Your Network:  http://192.168.1.64:3002/clic-world-website
+  Local:            http://localhost:3003/clic-world-website
+  On Your Network:  http://192.168.1.64:3003/clic-world-website
 
 Note that the development build is not optimized.
 To create a production build, use npm run build.
 
 webpack compiled successfully
 Compiling...
-Compiled successfully!
-webpack compiled successfully
+Compiled with warnings.
+
+[eslint] 
+src/components/ClicWorldWebsite.js
+  Line 26:5:  'refreshPrice' is assigned a value but never used  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/ClicWorldWebsite.js
+  Line 26:5:  'refreshPrice' is assigned a value but never used  no-unused-vars
+
+webpack compiled with 1 warning
 Compiling...
-Compiled successfully!
-webpack compiled successfully
+Compiled with warnings.
+
+[eslint] 
+src/components/ClicWorldWebsite.js
+  Line 26:5:  'refreshPrice' is assigned a value but never used  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/ClicWorldWebsite.js
+  Line 26:5:  'refreshPrice' is assigned a value but never used  no-unused-vars
+
+webpack compiled with 1 warning
 Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
+Compiled with warnings.
+
+[eslint] 
+src/components/ClicWorldWebsite.js
+  Line 26:5:  'refreshPrice' is assigned a value but never used  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/ClicWorldWebsite.js
+  Line 26:5:  'refreshPrice' is assigned a value but never used  no-unused-vars
+
+webpack compiled with 1 warning
 Compiling...
 Failed to compile.
 
 [eslint] 
-src/components/Navigation.js
-Syntax error: Unterminated regular expression. (80:12) (80:12)
-ERROR in ./src/components/Navigation.js
-Module build failed (from ./node_modules/babel-loader/lib/index.js):
-SyntaxError: /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/src/components/Navigation.js: Unterminated regular expression. (80:12)
+src/components/DebugInfo.js
+Syntax error: Expecting Unicode escape sequence \uXXXX. (1:52) (1:52)
+WARNING in [eslint] 
+src/components/ClicWorldWebsite.js
+  Line 15:8:  'DebugInfo' is defined but never used              no-unused-vars
+  Line 27:5:  'refreshPrice' is assigned a value but never used  no-unused-vars
 
-  78 |               </button>
-  79 |             ))
-> 80 |           </div>
-     |             ^
-  81 |
-  82 |           <div className="flex items-center space-x-3">
-  83 |             <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium transition-colors">
+ERROR in ./src/components/DebugInfo.js
+Module build failed (from ./node_modules/babel-loader/lib/index.js):
+SyntaxError: /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/src/components/DebugInfo.js: Expecting Unicode escape sequence \uXXXX. (1:52)
+
+> 1 | import React, { useState, useEffect } from 'react';\nimport bitqueryService from '../services/BitqueryService';\nimport useClixPrice from '../hooks/useClixPrice';\n\nconst DebugInfo = () => {\n  const [envCheck, setEnvCheck] = useState({});\n  const { price, isLoading, error, isConnected } = useClixPrice();\n\n  useEffect(() => {\n    // Check environment variables\n    setEnvCheck({\n      apiKey: process.env.REACT_APP_BITQUERY_API_KEY ? 'Set' : 'Missing',\n      assetCode: process.env.REACT_APP_CLIX_ASSET_CODE || 'Not set',\n      issuer: process.env.REACT_APP_CLIX_ISSUER ? 'Set' : 'Missing',\n      currentPrice: bitqueryService.getCurrentPrice(),\n    });\n  }, []);\n\n  if (process.env.NODE_ENV !== 'development') {\n    return null;\n  }\n\n  return (\n    <div className=\"fixed bottom-4 left-4 bg-gray-900 text-white p-3 rounded-lg text-xs max-w-xs opacity-90 z-50\">\n      <div className=\"font-bold mb-2\">🐛 Debug Info</div>\n      <div>API Key: {envCheck.apiKey}</div>\n      <div>Asset: {envCheck.assetCode}</div>\n      <div>Issuer: {envCheck.issuer}</div>\n      <div>Current Price: ${price}</div>\n      <div>Loading: {isLoading ? '🔄' : '✅'}</div>\n      <div>Connected: {isConnected ? '🟢' : '🔴'}</div>\n      <div>Error: {error ? '🟡' : '✅'}</div>\n      {error && <div className=\"text-red-300 text-xs mt-1\">{error}</div>}\n    </div>\n  );\n};\n\nexport default DebugInfo;
+    |                                                     ^
     at constructor (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:363:19)
     at FlowParserMixin.raise (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:6609:19)
-    at FlowParserMixin.readRegexp (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:6338:20)
-    at FlowParserMixin.parseExprAtom (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:11244:16)
-    at FlowParserMixin.parseExprAtom (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:4776:20)
-    at FlowParserMixin.parseExprSubscripts (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:11012:23)
-    at FlowParserMixin.parseUpdate (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10997:21)
-    at FlowParserMixin.parseMaybeUnary (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10977:23)
-    at FlowParserMixin.parseMaybeUnaryOrPrivate (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10830:61)
-    at FlowParserMixin.parseExprOpBaseRightExpr (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10917:34)
-    at FlowParserMixin.parseExprOpRightExpr (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10912:21)
-    at FlowParserMixin.parseExprOp (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10878:27)
-    at FlowParserMixin.parseExprOps (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10839:17)
-    at FlowParserMixin.parseMaybeConditional (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10812:23)
-    at FlowParserMixin.parseMaybeAssign (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10765:21)
-    at FlowParserMixin.parseMaybeAssign (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:3561:18)
-    at FlowParserMixin.parseExpressionBase (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10718:23)
-    at /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10714:39
-    at FlowParserMixin.allowInAnd (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:12361:12)
-    at FlowParserMixin.parseExpression (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10714:17)
-    at FlowParserMixin.jsxParseExpressionContainer (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:4644:31)
-    at FlowParserMixin.jsxParseElementAt (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:4723:36)
-    at FlowParserMixin.jsxParseElementAt (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:4710:32)
-    at FlowParserMixin.jsxParseElementAt (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:4710:32)
-    at FlowParserMixin.jsxParseElementAt (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:4710:32)
-    at FlowParserMixin.jsxParseElement (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:4761:17)
-    at FlowParserMixin.parseExprAtom (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:4771:19)
-    at FlowParserMixin.parseExprSubscripts (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:11012:23)
-    at FlowParserMixin.parseUpdate (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10997:21)
-    at FlowParserMixin.parseMaybeUnary (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10977:23)
-    at FlowParserMixin.parseMaybeUnaryOrPrivate (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10830:61)
-    at FlowParserMixin.parseExprOps (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10835:23)
-    at FlowParserMixin.parseMaybeConditional (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10812:23)
-    at FlowParserMixin.parseMaybeAssign (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10765:21)
-    at /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:3510:39
-    at FlowParserMixin.tryParse (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:6918:20)
-    at FlowParserMixin.parseMaybeAssign (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:3510:18)
-    at /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10734:39
-    at FlowParserMixin.allowInAnd (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:12361:12)
-    at FlowParserMixin.parseMaybeAssignAllowIn (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10734:17)
-    at FlowParserMixin.parseParenAndDistinguishExpression (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:11608:28)
-    at FlowParserMixin.parseParenAndDistinguishExpression (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:3603:18)
-    at FlowParserMixin.parseExprAtom (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:11262:23)
-    at FlowParserMixin.parseExprAtom (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:4776:20)
-    at FlowParserMixin.parseExprSubscripts (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:11012:23)
-    at FlowParserMixin.parseUpdate (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10997:21)
-    at FlowParserMixin.parseMaybeUnary (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10977:23)
-    at FlowParserMixin.parseMaybeUnaryOrPrivate (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10830:61)
-    at FlowParserMixin.parseExprOps (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10835:23)
-    at FlowParserMixin.parseMaybeConditional (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10812:23)
-
-ERROR in [eslint] 
-src/components/Navigation.js
-  Line 80:12:  Parsing error: Unterminated regular expression. (80:12)
-
-webpack compiled with 2 errors
-Compiling...
-Failed to compile.
-
-[eslint] 
-src/components/Navigation.js
-Syntax error: Unterminated regular expression. (80:12) (80:12)
-ERROR in ./src/components/Navigation.js
-Module build failed (from ./node_modules/babel-loader/lib/index.js):
-SyntaxError: /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/src/components/Navigation.js: Unterminated regular expression. (80:12)
-
-  78 |               </button>
-  79 |             ))
-> 80 |           </div>
-     |             ^
-  81 |
-  82 |           <div className="flex items-center space-x-3">
-  83 |             <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium transition-colors">
-    at constructor (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:363:19)
-    at FlowParserMixin.raise (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:6609:19)
-    at FlowParserMixin.readRegexp (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:6338:20)
-    at FlowParserMixin.parseExprAtom (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:11244:16)
-    at FlowParserMixin.parseExprAtom (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:4776:20)
-    at FlowParserMixin.parseExprSubscripts (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:11012:23)
-    at FlowParserMixin.parseUpdate (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10997:21)
-    at FlowParserMixin.parseMaybeUnary (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10977:23)
-    at FlowParserMixin.parseMaybeUnaryOrPrivate (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10830:61)
-    at FlowParserMixin.parseExprOpBaseRightExpr (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10917:34)
-    at FlowParserMixin.parseExprOpRightExpr (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10912:21)
-    at FlowParserMixin.parseExprOp (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10878:27)
-    at FlowParserMixin.parseExprOps (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10839:17)
-    at FlowParserMixin.parseMaybeConditional (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10812:23)
-    at FlowParserMixin.parseMaybeAssign (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10765:21)
-    at FlowParserMixin.parseMaybeAssign (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:3561:18)
-    at FlowParserMixin.parseExpressionBase (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10718:23)
-    at /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10714:39
-    at FlowParserMixin.allowInAnd (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:12361:12)
-    at FlowParserMixin.parseExpression (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10714:17)
-    at FlowParserMixin.jsxParseExpressionContainer (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:4644:31)
-    at FlowParserMixin.jsxParseElementAt (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:4723:36)
-    at FlowParserMixin.jsxParseElementAt (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:4710:32)
-    at FlowParserMixin.jsxParseElementAt (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:4710:32)
-    at FlowParserMixin.jsxParseElementAt (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:4710:32)
-    at FlowParserMixin.jsxParseElement (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:4761:17)
-    at FlowParserMixin.parseExprAtom (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:4771:19)
-    at FlowParserMixin.parseExprSubscripts (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:11012:23)
-    at FlowParserMixin.parseUpdate (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10997:21)
-    at FlowParserMixin.parseMaybeUnary (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10977:23)
-    at FlowParserMixin.parseMaybeUnaryOrPrivate (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10830:61)
-    at FlowParserMixin.parseExprOps (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10835:23)
-    at FlowParserMixin.parseMaybeConditional (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10812:23)
-    at FlowParserMixin.parseMaybeAssign (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10765:21)
-    at /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:3510:39
-    at FlowParserMixin.tryParse (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:6918:20)
-    at FlowParserMixin.parseMaybeAssign (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:3510:18)
-    at /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10734:39
-    at FlowParserMixin.allowInAnd (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:12361:12)
-    at FlowParserMixin.parseMaybeAssignAllowIn (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10734:17)
-    at FlowParserMixin.parseParenAndDistinguishExpression (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:11608:28)
-    at FlowParserMixin.parseParenAndDistinguishExpression (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:3603:18)
-    at FlowParserMixin.parseExprAtom (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:11262:23)
-    at FlowParserMixin.parseExprAtom (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:4776:20)
-    at FlowParserMixin.parseExprSubscripts (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:11012:23)
-    at FlowParserMixin.parseUpdate (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10997:21)
-    at FlowParserMixin.parseMaybeUnary (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10977:23)
-    at FlowParserMixin.parseMaybeUnaryOrPrivate (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10830:61)
-    at FlowParserMixin.parseExprOps (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10835:23)
-    at FlowParserMixin.parseMaybeConditional (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10812:23)
-
-ERROR in [eslint] 
-src/components/Navigation.js
-  Line 80:12:  Parsing error: Unterminated regular expression. (80:12)
-
-webpack compiled with 2 errors
-Compiling...
-Failed to compile.
-
-[eslint] 
-src/components/Navigation.js
-Syntax error: Unterminated regular expression. (80:12) (80:12)
-ERROR in ./src/components/Navigation.js
-Module build failed (from ./node_modules/babel-loader/lib/index.js):
-SyntaxError: /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/src/components/Navigation.js: Unterminated regular expression. (80:12)
-
-  78 |               </button>
-  79 |             ))
-> 80 |           </div>
-     |             ^
-  81 |
-  82 |           <div className="flex items-center space-x-3">
-  83 |             <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium transition-colors">
-    at constructor (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:363:19)
-    at FlowParserMixin.raise (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:6609:19)
-    at FlowParserMixin.readRegexp (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:6338:20)
-    at FlowParserMixin.parseExprAtom (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:11244:16)
-    at FlowParserMixin.parseExprAtom (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:4776:20)
-    at FlowParserMixin.parseExprSubscripts (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:11012:23)
-    at FlowParserMixin.parseUpdate (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10997:21)
-    at FlowParserMixin.parseMaybeUnary (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10977:23)
-    at FlowParserMixin.parseMaybeUnaryOrPrivate (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10830:61)
-    at FlowParserMixin.parseExprOpBaseRightExpr (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10917:34)
-    at FlowParserMixin.parseExprOpRightExpr (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10912:21)
-    at FlowParserMixin.parseExprOp (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10878:27)
-    at FlowParserMixin.parseExprOps (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10839:17)
-    at FlowParserMixin.parseMaybeConditional (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10812:23)
-    at FlowParserMixin.parseMaybeAssign (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10765:21)
-    at FlowParserMixin.parseMaybeAssign (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:3561:18)
-    at FlowParserMixin.parseExpressionBase (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10718:23)
-    at /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10714:39
-    at FlowParserMixin.allowInAnd (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:12361:12)
-    at FlowParserMixin.parseExpression (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10714:17)
-    at FlowParserMixin.jsxParseExpressionContainer (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:4644:31)
-    at FlowParserMixin.jsxParseElementAt (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:4723:36)
-    at FlowParserMixin.jsxParseElementAt (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:4710:32)
-    at FlowParserMixin.jsxParseElementAt (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:4710:32)
-    at FlowParserMixin.jsxParseElementAt (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:4710:32)
-    at FlowParserMixin.jsxParseElement (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:4761:17)
-    at FlowParserMixin.parseExprAtom (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:4771:19)
-    at FlowParserMixin.parseExprSubscripts (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:11012:23)
-    at FlowParserMixin.parseUpdate (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10997:21)
-    at FlowParserMixin.parseMaybeUnary (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10977:23)
-    at FlowParserMixin.parseMaybeUnaryOrPrivate (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10830:61)
-    at FlowParserMixin.parseExprOps (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10835:23)
-    at FlowParserMixin.parseMaybeConditional (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10812:23)
-    at FlowParserMixin.parseMaybeAssign (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10765:21)
-    at /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:3510:39
-    at FlowParserMixin.tryParse (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:6918:20)
-    at FlowParserMixin.parseMaybeAssign (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:3510:18)
-    at /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10734:39
-    at FlowParserMixin.allowInAnd (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:12361:12)
-    at FlowParserMixin.parseMaybeAssignAllowIn (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10734:17)
-    at FlowParserMixin.parseParenAndDistinguishExpression (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:11608:28)
-    at FlowParserMixin.parseParenAndDistinguishExpression (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:3603:18)
-    at FlowParserMixin.parseExprAtom (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:11262:23)
-    at FlowParserMixin.parseExprAtom (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:4776:20)
-    at FlowParserMixin.parseExprSubscripts (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:11012:23)
-    at FlowParserMixin.parseUpdate (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10997:21)
-    at FlowParserMixin.parseMaybeUnary (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10977:23)
-    at FlowParserMixin.parseMaybeUnaryOrPrivate (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10830:61)
-    at FlowParserMixin.parseExprOps (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10835:23)
-    at FlowParserMixin.parseMaybeConditional (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10812:23)
-
-ERROR in [eslint] 
-src/components/Navigation.js
-  Line 80:12:  Parsing error: Unterminated regular expression. (80:12)
-
-webpack compiled with 2 errors
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Failed to compile.
-
-[eslint] 
-src/data/blogPosts.js
-Syntax error: Unexpected token (170:13) (170:13)
-ERROR in ./src/data/blogPosts.js
-Module build failed (from ./node_modules/babel-loader/lib/index.js):
-SyntaxError: /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/src/data/blogPosts.js: Unexpected token (170:13)
-
-  168 |     slug: "clicbrain-future-enterprise-intelligence",
-  169 |     excerpt: "ClicBrain represents a fundamental evolution in enterprise knowledge management—an AI-native, human-centric intelligence ecosystem that transforms how organizations create, share, and leverage collective wisdom through living knowledge objects and symbiotic human-AI partnerships.",
-> 170 |     content: `
-      |              ^
-  171 | # ClicBrain: The Future of Enterprise Intelligence
-  172 |
-  173 | ## **Core Vision (Expanded)**
-    at constructor (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:363:19)
-    at FlowParserMixin.raise (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:6609:19)
-    at FlowParserMixin.unexpected (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:6629:16)
-    at FlowParserMixin.flowParsePrimaryType (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:2781:10)
-    at FlowParserMixin.flowParsePostfixType (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:2785:21)
-    at FlowParserMixin.flowParsePrefixType (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:2816:19)
-    at FlowParserMixin.flowParseAnonFunctionWithoutParens (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:2820:24)
-    at FlowParserMixin.flowParseIntersectionType (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:2835:23)
-    at FlowParserMixin.flowParseUnionType (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:2845:23)
-    at FlowParserMixin.flowParseType (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:2855:23)
-    at FlowParserMixin.flowParseTypeInitialiser (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:1860:23)
-    at FlowParserMixin.flowParseTypeAnnotation (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:2870:32)
-    at FlowParserMixin.parseParenItem (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:3091:42)
-    at FlowParserMixin.parseMaybeAssign (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10767:29)
-    at FlowParserMixin.parseMaybeAssign (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:3561:18)
-    at /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10734:39
-    at FlowParserMixin.allowInAnd (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:12361:12)
-    at FlowParserMixin.parseMaybeAssignAllowIn (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10734:17)
-    at FlowParserMixin.parseExprListItem (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:12110:18)
-    at FlowParserMixin.parseExprList (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:12085:22)
-    at FlowParserMixin.parseArrayLike (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:11992:26)
-    at FlowParserMixin.parseArrayLike (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:3243:24)
-    at FlowParserMixin.parseExprAtom (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:11266:23)
-    at FlowParserMixin.parseExprAtom (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:4776:20)
-    at FlowParserMixin.parseExprSubscripts (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:11012:23)
-    at FlowParserMixin.parseUpdate (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10997:21)
-    at FlowParserMixin.parseMaybeUnary (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10977:23)
-    at FlowParserMixin.parseMaybeUnaryOrPrivate (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10830:61)
-    at FlowParserMixin.parseExprOps (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10835:23)
-    at FlowParserMixin.parseMaybeConditional (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10812:23)
-    at FlowParserMixin.parseMaybeAssign (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10765:21)
-    at FlowParserMixin.parseMaybeAssign (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:3561:18)
-    at /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10734:39
-    at FlowParserMixin.allowInAnd (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:12356:16)
-    at FlowParserMixin.parseMaybeAssignAllowIn (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10734:17)
-    at FlowParserMixin.parseVar (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:13303:91)
-    at FlowParserMixin.parseVarStatement (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:13149:10)
-    at FlowParserMixin.parseStatementContent (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:12770:23)
-    at FlowParserMixin.parseStatementLike (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:12685:17)
-    at FlowParserMixin.parseStatementLike (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:2928:24)
-    at FlowParserMixin.parseStatementListItem (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:12665:17)
-    at FlowParserMixin.parseExportDeclaration (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:13849:17)
-    at FlowParserMixin.parseExportDeclaration (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:3130:20)
-    at FlowParserMixin.maybeParseExportDeclaration (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:13808:31)
-    at FlowParserMixin.parseExport (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:13727:29)
-    at FlowParserMixin.parseStatementContent (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:12797:27)
+    at FlowParserMixin.readWord1 (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:6569:16)
+    at FlowParserMixin.readWord (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:6589:23)
+    at FlowParserMixin.getTokenFromCode (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:6308:14)
+    at FlowParserMixin.getTokenFromCode (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:4809:11)
+    at FlowParserMixin.getTokenFromCode (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:3207:13)
+    at FlowParserMixin.nextToken (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:5792:10)
+    at FlowParserMixin.next (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:5702:10)
+    at FlowParserMixin.eat (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:5706:12)
+    at FlowParserMixin.isLineTerminator (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:6902:17)
+    at FlowParserMixin.semicolon (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:6905:25)
+    at FlowParserMixin.parseImportSourceAndAttributes (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:14171:10)
+    at FlowParserMixin.parseImportSpecifiersAndAfter (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:14162:17)
+    at FlowParserMixin.parseImport (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:14153:17)
+    at FlowParserMixin.parseStatementContent (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:12795:27)
     at FlowParserMixin.parseStatementLike (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:12685:17)
     at FlowParserMixin.parseStatementLike (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:2928:24)
     at FlowParserMixin.parseModuleItem (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:12662:17)
     at FlowParserMixin.parseBlockOrModuleBlockBody (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:13235:36)
+    at FlowParserMixin.parseBlockBody (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:13228:10)
+    at FlowParserMixin.parseProgram (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:12541:10)
+    at FlowParserMixin.parseTopLevel (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:12531:25)
+    at FlowParserMixin.parseTopLevel (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:3697:28)
+    at FlowParserMixin.parse (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:14410:10)
+    at parse (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:14444:38)
+    at parser (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/core/lib/parser/index.js:41:34)
+    at parser.next (<anonymous>)
+    at normalizeFile (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/core/lib/transformation/normalize-file.js:64:37)
+    at normalizeFile.next (<anonymous>)
+    at run (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/core/lib/transformation/index.js:22:50)
+    at run.next (<anonymous>)
+    at transform (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/core/lib/transform.js:22:33)
+    at transform.next (<anonymous>)
+    at step (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/gensync/index.js:261:32)
+    at /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/gensync/index.js:273:13
+    at async.call.result.err.err (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/gensync/index.js:223:11)
 
 ERROR in [eslint] 
-src/data/blogPosts.js
-  Line 170:13:  Parsing error: Unexpected token (170:13)
+src/components/DebugInfo.js
+  Line 1:52:  Parsing error: Expecting Unicode escape sequence \uXXXX. (1:52)
 
-webpack compiled with 2 errors
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
+webpack compiled with 2 errors and 1 warning
 Compiling...
 Failed to compile.
 
 [eslint] 
-src/components/PartnersSection.js
-  Line 15:13:  'kinesisLogo' is not defined      no-undef
-  Line 22:13:  'drfqLogo' is not defined         no-undef
-  Line 29:13:  'interswitchLogo' is not defined  no-undef
-  Line 36:13:  'yellowcardLogo' is not defined   no-undef
-  Line 43:13:  'abcLogo' is not defined          no-undef
-  Line 50:13:  'stellarLogo' is not defined      no-undef
-  Line 57:13:  'anthropicLogo' is not defined    no-undef
-  Line 64:13:  'pryvazLogo' is not defined       no-undef
+src/components/DebugInfo.js
+Syntax error: Expecting Unicode escape sequence \uXXXX. (1:52) (1:52)
+WARNING in [eslint] 
+src/components/ClicWorldWebsite.js
+  Line 27:5:  'refreshPrice' is assigned a value but never used  no-unused-vars
 
-Search for the keywords to learn more about each error.
-ERROR in [eslint] 
-src/components/PartnersSection.js
-  Line 15:13:  'kinesisLogo' is not defined      no-undef
-  Line 22:13:  'drfqLogo' is not defined         no-undef
-  Line 29:13:  'interswitchLogo' is not defined  no-undef
-  Line 36:13:  'yellowcardLogo' is not defined   no-undef
-  Line 43:13:  'abcLogo' is not defined          no-undef
-  Line 50:13:  'stellarLogo' is not defined      no-undef
-  Line 57:13:  'anthropicLogo' is not defined    no-undef
-  Line 64:13:  'pryvazLogo' is not defined       no-undef
-
-Search for the keywords to learn more about each error.
-
-webpack compiled with 1 error
-Compiling...
-Failed to compile.
-
-[eslint] 
-src/components/PartnersSection.js
-  Line 64:13:  'pryvazLogo' is not defined  no-undef
-
-Search for the keywords to learn more about each error.
-ERROR in [eslint] 
-src/components/PartnersSection.js
-  Line 64:13:  'pryvazLogo' is not defined  no-undef
-
-Search for the keywords to learn more about each error.
-
-webpack compiled with 1 error
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Failed to compile.
-
-[eslint] 
-src/components/AboutSectionEnhanced.js
-  Line 97:32:  'artisanalMinersImg' is not defined  no-undef
-
-Search for the keywords to learn more about each error.
-ERROR in [eslint] 
-src/components/AboutSectionEnhanced.js
-  Line 97:32:  'artisanalMinersImg' is not defined  no-undef
-
-Search for the keywords to learn more about each error.
-
-webpack compiled with 1 error
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Failed to compile.
-
-[eslint] 
-src/components/HeroSection.js
-  Line 56:22:  'communityImage' is not defined  no-undef
-
-Search for the keywords to learn more about each error.
-ERROR in [eslint] 
-src/components/HeroSection.js
-  Line 56:22:  'communityImage' is not defined  no-undef
-
-Search for the keywords to learn more about each error.
-
-webpack compiled with 1 error
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Failed to compile.
-
-[eslint] 
-src/data/blogPosts.js
-Syntax error: Unexpected token, expected "," (612:0) (612:undefined)
-ERROR in ./src/data/blogPosts.js
+ERROR in ./src/components/DebugInfo.js
 Module build failed (from ./node_modules/babel-loader/lib/index.js):
-SyntaxError: /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/src/data/blogPosts.js: Unexpected token, expected "," (612:0)
+SyntaxError: /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/src/components/DebugInfo.js: Expecting Unicode escape sequence \uXXXX. (1:52)
 
-  610 |     excerpt: "A conversation with Claude (Sonnet 4) that explores what symbiotic AI-human relationships might look like, featuring Claude's surprisingly candid insights about its own development and the shift from extraction to genuine partnership.",
-  611 |     content: `
-> 612 | # Under the Mango Tree: From Extraction to Symbiosis — Part 2
-      | ^
-  613 |
-  614 | *A conversation with Claude (Sonnet 4) on 29 May 2025*
-  615 |
+> 1 | import React, { useState, useEffect } from 'react';\nimport bitqueryService from '../services/BitqueryService';\nimport useClixPrice from '../hooks/useClixPrice';\n\nconst DebugInfo = () => {\n  const [envCheck, setEnvCheck] = useState({});\n  const { price, isLoading, error, isConnected } = useClixPrice();\n\n  useEffect(() => {\n    // Check environment variables\n    setEnvCheck({\n      apiKey: process.env.REACT_APP_BITQUERY_API_KEY ? 'Set' : 'Missing',\n      assetCode: process.env.REACT_APP_CLIX_ASSET_CODE || 'Not set',\n      issuer: process.env.REACT_APP_CLIX_ISSUER ? 'Set' : 'Missing',\n      currentPrice: bitqueryService.getCurrentPrice(),\n    });\n  }, []);\n\n  if (process.env.NODE_ENV !== 'development') {\n    return null;\n  }\n\n  return (\n    <div className=\"fixed bottom-4 left-4 bg-gray-900 text-white p-3 rounded-lg text-xs max-w-xs opacity-90 z-50\">\n      <div className=\"font-bold mb-2\">🐛 Debug Info</div>\n      <div>API Key: {envCheck.apiKey}</div>\n      <div>Asset: {envCheck.assetCode}</div>\n      <div>Issuer: {envCheck.issuer}</div>\n      <div>Current Price: ${price}</div>\n      <div>Loading: {isLoading ? '🔄' : '✅'}</div>\n      <div>Connected: {isConnected ? '🟢' : '🔴'}</div>\n      <div>Error: {error ? '🟡' : '✅'}</div>\n      {error && <div className=\"text-red-300 text-xs mt-1\">{error}</div>}\n    </div>\n  );\n};\n\nexport default DebugInfo;
+    |                                                     ^
     at constructor (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:363:19)
     at FlowParserMixin.raise (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:6609:19)
-    at FlowParserMixin.unexpected (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:6629:16)
-    at FlowParserMixin.expect (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:6910:12)
-    at FlowParserMixin.parseObjectLike (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:11755:14)
-    at FlowParserMixin.parseExprAtom (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:11270:23)
-    at FlowParserMixin.parseExprAtom (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:4776:20)
-    at FlowParserMixin.parseExprSubscripts (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:11012:23)
-    at FlowParserMixin.parseUpdate (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10997:21)
-    at FlowParserMixin.parseMaybeUnary (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10977:23)
-    at FlowParserMixin.parseMaybeUnaryOrPrivate (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10830:61)
-    at FlowParserMixin.parseExprOps (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10835:23)
-    at FlowParserMixin.parseMaybeConditional (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10812:23)
-    at FlowParserMixin.parseMaybeAssign (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10765:21)
-    at FlowParserMixin.parseMaybeAssign (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:3561:18)
-    at /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10734:39
-    at FlowParserMixin.allowInAnd (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:12361:12)
-    at FlowParserMixin.parseMaybeAssignAllowIn (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10734:17)
-    at FlowParserMixin.parseExprListItem (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:12110:18)
-    at FlowParserMixin.parseExprList (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:12085:22)
-    at FlowParserMixin.parseArrayLike (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:11992:26)
-    at FlowParserMixin.parseArrayLike (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:3243:24)
-    at FlowParserMixin.parseExprAtom (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:11266:23)
-    at FlowParserMixin.parseExprAtom (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:4776:20)
-    at FlowParserMixin.parseExprSubscripts (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:11012:23)
-    at FlowParserMixin.parseUpdate (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10997:21)
-    at FlowParserMixin.parseMaybeUnary (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10977:23)
-    at FlowParserMixin.parseMaybeUnaryOrPrivate (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10830:61)
-    at FlowParserMixin.parseExprOps (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10835:23)
-    at FlowParserMixin.parseMaybeConditional (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10812:23)
-    at FlowParserMixin.parseMaybeAssign (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10765:21)
-    at FlowParserMixin.parseMaybeAssign (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:3561:18)
-    at /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10734:39
-    at FlowParserMixin.allowInAnd (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:12356:16)
-    at FlowParserMixin.parseMaybeAssignAllowIn (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10734:17)
-    at FlowParserMixin.parseVar (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:13303:91)
-    at FlowParserMixin.parseVarStatement (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:13149:10)
-    at FlowParserMixin.parseStatementContent (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:12770:23)
-    at FlowParserMixin.parseStatementLike (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:12685:17)
-    at FlowParserMixin.parseStatementLike (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:2928:24)
-    at FlowParserMixin.parseStatementListItem (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:12665:17)
-    at FlowParserMixin.parseExportDeclaration (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:13849:17)
-    at FlowParserMixin.parseExportDeclaration (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:3130:20)
-    at FlowParserMixin.maybeParseExportDeclaration (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:13808:31)
-    at FlowParserMixin.parseExport (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:13727:29)
-    at FlowParserMixin.parseStatementContent (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:12797:27)
+    at FlowParserMixin.readWord1 (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:6569:16)
+    at FlowParserMixin.readWord (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:6589:23)
+    at FlowParserMixin.getTokenFromCode (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:6308:14)
+    at FlowParserMixin.getTokenFromCode (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:4809:11)
+    at FlowParserMixin.getTokenFromCode (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:3207:13)
+    at FlowParserMixin.nextToken (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:5792:10)
+    at FlowParserMixin.next (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:5702:10)
+    at FlowParserMixin.eat (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:5706:12)
+    at FlowParserMixin.isLineTerminator (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:6902:17)
+    at FlowParserMixin.semicolon (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:6905:25)
+    at FlowParserMixin.parseImportSourceAndAttributes (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:14171:10)
+    at FlowParserMixin.parseImportSpecifiersAndAfter (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:14162:17)
+    at FlowParserMixin.parseImport (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:14153:17)
+    at FlowParserMixin.parseStatementContent (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:12795:27)
     at FlowParserMixin.parseStatementLike (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:12685:17)
     at FlowParserMixin.parseStatementLike (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:2928:24)
     at FlowParserMixin.parseModuleItem (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:12662:17)
     at FlowParserMixin.parseBlockOrModuleBlockBody (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:13235:36)
+    at FlowParserMixin.parseBlockBody (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:13228:10)
+    at FlowParserMixin.parseProgram (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:12541:10)
+    at FlowParserMixin.parseTopLevel (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:12531:25)
+    at FlowParserMixin.parseTopLevel (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:3697:28)
+    at FlowParserMixin.parse (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:14410:10)
+    at parse (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:14444:38)
+    at parser (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/core/lib/parser/index.js:41:34)
+    at parser.next (<anonymous>)
+    at normalizeFile (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/core/lib/transformation/normalize-file.js:64:37)
+    at normalizeFile.next (<anonymous>)
+    at run (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/core/lib/transformation/index.js:22:50)
+    at run.next (<anonymous>)
+    at transform (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/core/lib/transform.js:22:33)
+    at transform.next (<anonymous>)
+    at step (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/gensync/index.js:261:32)
+    at /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/gensync/index.js:273:13
+    at async.call.result.err.err (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/gensync/index.js:223:11)
 
 ERROR in [eslint] 
-src/data/blogPosts.js
-  Line 612:  Parsing error: Unexpected token, expected "," (612:0)
+src/components/DebugInfo.js
+  Line 1:52:  Parsing error: Expecting Unicode escape sequence \uXXXX. (1:52)
 
-webpack compiled with 2 errors
+webpack compiled with 2 errors and 1 warning
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/ClicWorldWebsite.js
+  Line 27:5:  'refreshPrice' is assigned a value but never used  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/ClicWorldWebsite.js
+  Line 27:5:  'refreshPrice' is assigned a value but never used  no-unused-vars
+
+webpack compiled with 1 warning
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/ClicWorldWebsite.js
+  Line 27:5:  'refreshPrice' is assigned a value but never used  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/ClicWorldWebsite.js
+  Line 27:5:  'refreshPrice' is assigned a value but never used  no-unused-vars
+
+webpack compiled with 1 warning
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
 Compiling...
 Failed to compile.
 
 [eslint] 
-src/data/blogPosts.js
-Syntax error: Unexpected token, expected "," (612:0) (612:undefined)
-ERROR in ./src/data/blogPosts.js
-Module build failed (from ./node_modules/babel-loader/lib/index.js):
-SyntaxError: /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/src/data/blogPosts.js: Unexpected token, expected "," (612:0)
+src/components/ClicWorldWebsite.js
+  Line 28:7:  'useClixPrice' is not defined  no-undef
 
-  610 |     excerpt: "A conversation with Claude (Sonnet 4) that explores what symbiotic AI-human relationships might look like, featuring Claude's surprisingly candid insights about its own development and the shift from extraction to genuine partnership.",
-  611 |     content: `
-> 612 | # Under the Mango Tree: From Extraction to Symbiosis — Part 2
-      | ^
-  613 |
-  614 | *A conversation with Claude (Sonnet 4) on 29 May 2025*
-  615 |
-    at constructor (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:363:19)
-    at FlowParserMixin.raise (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:6609:19)
-    at FlowParserMixin.unexpected (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:6629:16)
-    at FlowParserMixin.expect (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:6910:12)
-    at FlowParserMixin.parseObjectLike (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:11755:14)
-    at FlowParserMixin.parseExprAtom (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:11270:23)
-    at FlowParserMixin.parseExprAtom (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:4776:20)
-    at FlowParserMixin.parseExprSubscripts (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:11012:23)
-    at FlowParserMixin.parseUpdate (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10997:21)
-    at FlowParserMixin.parseMaybeUnary (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10977:23)
-    at FlowParserMixin.parseMaybeUnaryOrPrivate (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10830:61)
-    at FlowParserMixin.parseExprOps (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10835:23)
-    at FlowParserMixin.parseMaybeConditional (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10812:23)
-    at FlowParserMixin.parseMaybeAssign (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10765:21)
-    at FlowParserMixin.parseMaybeAssign (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:3561:18)
-    at /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10734:39
-    at FlowParserMixin.allowInAnd (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:12361:12)
-    at FlowParserMixin.parseMaybeAssignAllowIn (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10734:17)
-    at FlowParserMixin.parseExprListItem (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:12110:18)
-    at FlowParserMixin.parseExprList (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:12085:22)
-    at FlowParserMixin.parseArrayLike (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:11992:26)
-    at FlowParserMixin.parseArrayLike (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:3243:24)
-    at FlowParserMixin.parseExprAtom (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:11266:23)
-    at FlowParserMixin.parseExprAtom (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:4776:20)
-    at FlowParserMixin.parseExprSubscripts (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:11012:23)
-    at FlowParserMixin.parseUpdate (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10997:21)
-    at FlowParserMixin.parseMaybeUnary (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10977:23)
-    at FlowParserMixin.parseMaybeUnaryOrPrivate (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10830:61)
-    at FlowParserMixin.parseExprOps (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10835:23)
-    at FlowParserMixin.parseMaybeConditional (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10812:23)
-    at FlowParserMixin.parseMaybeAssign (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10765:21)
-    at FlowParserMixin.parseMaybeAssign (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:3561:18)
-    at /Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10734:39
-    at FlowParserMixin.allowInAnd (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:12356:16)
-    at FlowParserMixin.parseMaybeAssignAllowIn (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:10734:17)
-    at FlowParserMixin.parseVar (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:13303:91)
-    at FlowParserMixin.parseVarStatement (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:13149:10)
-    at FlowParserMixin.parseStatementContent (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:12770:23)
-    at FlowParserMixin.parseStatementLike (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:12685:17)
-    at FlowParserMixin.parseStatementLike (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:2928:24)
-    at FlowParserMixin.parseStatementListItem (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:12665:17)
-    at FlowParserMixin.parseExportDeclaration (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:13849:17)
-    at FlowParserMixin.parseExportDeclaration (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:3130:20)
-    at FlowParserMixin.maybeParseExportDeclaration (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:13808:31)
-    at FlowParserMixin.parseExport (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:13727:29)
-    at FlowParserMixin.parseStatementContent (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:12797:27)
-    at FlowParserMixin.parseStatementLike (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:12685:17)
-    at FlowParserMixin.parseStatementLike (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:2928:24)
-    at FlowParserMixin.parseModuleItem (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:12662:17)
-    at FlowParserMixin.parseBlockOrModuleBlockBody (/Users/admin/Library/Mobile Documents/com~apple~CloudDocs/ClicBrain/Clic_Website_2/node_modules/@babel/parser/lib/index.js:13235:36)
+Search for the keywords to learn more about each error.
+WARNING in [eslint] 
+src/components/ClicWorldWebsite.js
+  Line 13:8:  'useClixPriceEnhanced' is defined but never used  no-unused-vars
 
 ERROR in [eslint] 
-src/data/blogPosts.js
-  Line 612:  Parsing error: Unexpected token, expected "," (612:0)
+src/components/ClicWorldWebsite.js
+  Line 28:7:  'useClixPrice' is not defined  no-undef
 
-webpack compiled with 2 errors
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
+Search for the keywords to learn more about each error.
+
+webpack compiled with 1 error and 1 warning
 Compiling...
 Compiled with warnings.
 
 [eslint] 
-src/components/AboutSectionEnhanced.js
-  Line 1:17:  'useState' is defined but never used       no-unused-vars
-  Line 2:10:  'blogPosts' is defined but never used      no-unused-vars
-  Line 3:8:   'BlogPostModal' is defined but never used  no-unused-vars
+src/components/ClicWorldWebsite.js
+  Line 27:5:  'activeService' is assigned a value but never used  no-unused-vars
+  Line 28:5:  'refreshPrice' is assigned a value but never used   no-unused-vars
 
 Search for the keywords to learn more about each warning.
 To ignore, add // eslint-disable-next-line to the line before.
 
 WARNING in [eslint] 
-src/components/AboutSectionEnhanced.js
-  Line 1:17:  'useState' is defined but never used       no-unused-vars
-  Line 2:10:  'blogPosts' is defined but never used      no-unused-vars
-  Line 3:8:   'BlogPostModal' is defined but never used  no-unused-vars
+src/components/ClicWorldWebsite.js
+  Line 27:5:  'activeService' is assigned a value but never used  no-unused-vars
+  Line 28:5:  'refreshPrice' is assigned a value but never used   no-unused-vars
 
 webpack compiled with 1 warning
 Compiling...
 Compiled with warnings.
 
 [eslint] 
-src/components/AboutSectionEnhanced.js
-  Line 3:8:   'BlogPostModal' is defined but never used                        no-unused-vars
-  Line 7:10:  'selectedPost' is assigned a value but never used                no-unused-vars
-  Line 8:10:  'isModalOpen' is assigned a value but never used                 no-unused-vars
-  Line 13:9:  'openDecentralizedMoneyPost' is assigned a value but never used  no-unused-vars
-  Line 20:9:  'closeModal' is assigned a value but never used                  no-unused-vars
+src/components/ClicWorldWebsite.js
+  Line 27:5:  'activeService' is assigned a value but never used  no-unused-vars
+  Line 28:5:  'refreshPrice' is assigned a value but never used   no-unused-vars
 
 Search for the keywords to learn more about each warning.
 To ignore, add // eslint-disable-next-line to the line before.
 
 WARNING in [eslint] 
-src/components/AboutSectionEnhanced.js
-  Line 3:8:   'BlogPostModal' is defined but never used                        no-unused-vars
-  Line 7:10:  'selectedPost' is assigned a value but never used                no-unused-vars
-  Line 8:10:  'isModalOpen' is assigned a value but never used                 no-unused-vars
-  Line 13:9:  'openDecentralizedMoneyPost' is assigned a value but never used  no-unused-vars
-  Line 20:9:  'closeModal' is assigned a value but never used                  no-unused-vars
+src/components/ClicWorldWebsite.js
+  Line 27:5:  'activeService' is assigned a value but never used  no-unused-vars
+  Line 28:5:  'refreshPrice' is assigned a value but never used   no-unused-vars
 
 webpack compiled with 1 warning
 Compiling...
 Compiled with warnings.
 
 [eslint] 
-src/components/AboutSectionEnhanced.js
-  Line 3:8:   'BlogPostModal' is defined but never used          no-unused-vars
-  Line 7:10:  'selectedPost' is assigned a value but never used  no-unused-vars
-  Line 8:10:  'isModalOpen' is assigned a value but never used   no-unused-vars
-  Line 20:9:  'closeModal' is assigned a value but never used    no-unused-vars
+src/components/ClicWorldWebsite.js
+  Line 27:5:  'activeService' is assigned a value but never used  no-unused-vars
+  Line 28:5:  'refreshPrice' is assigned a value but never used   no-unused-vars
+
+src/hooks/useClixPriceEnhanced.js
+  Line 158:6:  React Hook useEffect has a missing dependency: 'isLoading'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
 
 Search for the keywords to learn more about each warning.
 To ignore, add // eslint-disable-next-line to the line before.
 
 WARNING in [eslint] 
-src/components/AboutSectionEnhanced.js
-  Line 3:8:   'BlogPostModal' is defined but never used          no-unused-vars
-  Line 7:10:  'selectedPost' is assigned a value but never used  no-unused-vars
-  Line 8:10:  'isModalOpen' is assigned a value but never used   no-unused-vars
-  Line 20:9:  'closeModal' is assigned a value but never used    no-unused-vars
+src/components/ClicWorldWebsite.js
+  Line 27:5:  'activeService' is assigned a value but never used  no-unused-vars
+  Line 28:5:  'refreshPrice' is assigned a value but never used   no-unused-vars
 
-webpack compiled with 1 warning
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled with warnings.
-
-[eslint] 
-src/components/PrivacySectionEnhanced.js
-  Line 2:8:  'PatentModal' is defined but never used  no-unused-vars
-
-Search for the keywords to learn more about each warning.
-To ignore, add // eslint-disable-next-line to the line before.
-
-WARNING in [eslint] 
-src/components/PrivacySectionEnhanced.js
-  Line 2:8:  'PatentModal' is defined but never used  no-unused-vars
+src/hooks/useClixPriceEnhanced.js
+  Line 158:6:  React Hook useEffect has a missing dependency: 'isLoading'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
 
 webpack compiled with 1 warning
 Compiling...
 Compiled with warnings.
 
 [eslint] 
-src/components/PrivacySectionEnhanced.js
-  Line 2:8:  'PatentModal' is defined but never used  no-unused-vars
+src/components/ClicWorldWebsite.js
+  Line 27:5:  'activeService' is assigned a value but never used  no-unused-vars
+  Line 28:5:  'refreshPrice' is assigned a value but never used   no-unused-vars
+
+src/hooks/useClixPriceEnhanced.js
+  Line 158:6:  React Hook useEffect has a missing dependency: 'isLoading'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
 
 Search for the keywords to learn more about each warning.
 To ignore, add // eslint-disable-next-line to the line before.
 
 WARNING in [eslint] 
-src/components/PrivacySectionEnhanced.js
-  Line 2:8:  'PatentModal' is defined but never used  no-unused-vars
+src/components/ClicWorldWebsite.js
+  Line 27:5:  'activeService' is assigned a value but never used  no-unused-vars
+  Line 28:5:  'refreshPrice' is assigned a value but never used   no-unused-vars
+
+src/hooks/useClixPriceEnhanced.js
+  Line 158:6:  React Hook useEffect has a missing dependency: 'isLoading'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
 
 webpack compiled with 1 warning
 Compiling...
 Compiled with warnings.
 
 [eslint] 
-src/components/PrivacySectionEnhanced.js
-  Line 2:8:   'PatentModal' is defined but never used                    no-unused-vars
-  Line 6:10:  'isPatentModalOpen' is assigned a value but never used     no-unused-vars
-  Line 6:29:  'setIsPatentModalOpen' is assigned a value but never used  no-unused-vars
+src/components/ClicWorldWebsite.js
+  Line 27:5:  'activeService' is assigned a value but never used  no-unused-vars
+  Line 28:5:  'refreshPrice' is assigned a value but never used   no-unused-vars
+
+src/hooks/useClixPriceEnhanced.js
+  Line 158:6:  React Hook useEffect has a missing dependency: 'isLoading'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
 
 Search for the keywords to learn more about each warning.
 To ignore, add // eslint-disable-next-line to the line before.
 
 WARNING in [eslint] 
-src/components/PrivacySectionEnhanced.js
-  Line 2:8:   'PatentModal' is defined but never used                    no-unused-vars
-  Line 6:10:  'isPatentModalOpen' is assigned a value but never used     no-unused-vars
-  Line 6:29:  'setIsPatentModalOpen' is assigned a value but never used  no-unused-vars
+src/components/ClicWorldWebsite.js
+  Line 27:5:  'activeService' is assigned a value but never used  no-unused-vars
+  Line 28:5:  'refreshPrice' is assigned a value but never used   no-unused-vars
+
+src/hooks/useClixPriceEnhanced.js
+  Line 158:6:  React Hook useEffect has a missing dependency: 'isLoading'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
 
 webpack compiled with 1 warning
 Compiling...
 Compiled with warnings.
 
 [eslint] 
-src/components/PrivacySectionEnhanced.js
-  Line 2:8:   'PatentModal' is defined but never used                 no-unused-vars
-  Line 6:10:  'isPatentModalOpen' is assigned a value but never used  no-unused-vars
+src/components/ClicWorldWebsite.js
+  Line 27:5:  'activeService' is assigned a value but never used  no-unused-vars
+  Line 28:5:  'refreshPrice' is assigned a value but never used   no-unused-vars
+
+src/hooks/useClixPriceEnhanced.js
+  Line 158:6:  React Hook useEffect has a missing dependency: 'isLoading'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/services/StellarHorizonService.js
+  Line 216:3:  Duplicate name 'fetchRecentTrades'  no-dupe-class-members
 
 Search for the keywords to learn more about each warning.
 To ignore, add // eslint-disable-next-line to the line before.
 
 WARNING in [eslint] 
-src/components/PrivacySectionEnhanced.js
-  Line 2:8:   'PatentModal' is defined but never used                 no-unused-vars
-  Line 6:10:  'isPatentModalOpen' is assigned a value but never used  no-unused-vars
+src/components/ClicWorldWebsite.js
+  Line 27:5:  'activeService' is assigned a value but never used  no-unused-vars
+  Line 28:5:  'refreshPrice' is assigned a value but never used   no-unused-vars
+
+src/hooks/useClixPriceEnhanced.js
+  Line 158:6:  React Hook useEffect has a missing dependency: 'isLoading'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/services/StellarHorizonService.js
+  Line 216:3:  Duplicate name 'fetchRecentTrades'  no-dupe-class-members
 
 webpack compiled with 1 warning
 Compiling...
-Compiled successfully!
-webpack compiled successfully
+Compiled with warnings.
+
+[eslint] 
+src/components/ClicWorldWebsite.js
+  Line 27:5:  'activeService' is assigned a value but never used  no-unused-vars
+  Line 28:5:  'refreshPrice' is assigned a value but never used   no-unused-vars
+
+src/hooks/useClixPriceEnhanced.js
+  Line 158:6:  React Hook useEffect has a missing dependency: 'isLoading'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/services/StellarHorizonService.js
+  Line 216:3:  Duplicate name 'fetchRecentTrades'  no-dupe-class-members
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/ClicWorldWebsite.js
+  Line 27:5:  'activeService' is assigned a value but never used  no-unused-vars
+  Line 28:5:  'refreshPrice' is assigned a value but never used   no-unused-vars
+
+src/hooks/useClixPriceEnhanced.js
+  Line 158:6:  React Hook useEffect has a missing dependency: 'isLoading'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/services/StellarHorizonService.js
+  Line 216:3:  Duplicate name 'fetchRecentTrades'  no-dupe-class-members
+
+webpack compiled with 1 warning
 Compiling...
-Compiled successfully!
-webpack compiled successfully
+Compiled with warnings.
+
+[eslint] 
+src/components/ClicWorldWebsite.js
+  Line 27:5:  'activeService' is assigned a value but never used  no-unused-vars
+  Line 28:5:  'refreshPrice' is assigned a value but never used   no-unused-vars
+
+src/hooks/useClixPriceEnhanced.js
+  Line 158:6:  React Hook useEffect has a missing dependency: 'isLoading'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/services/StellarHorizonService.js
+  Line 308:3:  Duplicate name 'fetchRecentTrades'  no-dupe-class-members
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/ClicWorldWebsite.js
+  Line 27:5:  'activeService' is assigned a value but never used  no-unused-vars
+  Line 28:5:  'refreshPrice' is assigned a value but never used   no-unused-vars
+
+src/hooks/useClixPriceEnhanced.js
+  Line 158:6:  React Hook useEffect has a missing dependency: 'isLoading'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/services/StellarHorizonService.js
+  Line 308:3:  Duplicate name 'fetchRecentTrades'  no-dupe-class-members
+
+webpack compiled with 1 warning
 Compiling...
-Compiled successfully!
-webpack compiled successfully
+Compiled with warnings.
+
+[eslint] 
+src/components/ClicWorldWebsite.js
+  Line 29:5:  'activeService' is assigned a value but never used  no-unused-vars
+  Line 30:5:  'refreshPrice' is assigned a value but never used   no-unused-vars
+
+src/hooks/useClixPriceDual.js
+  Line 216:6:  React Hook useEffect has a missing dependency: 'isLoading'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/hooks/useClixPriceEnhanced.js
+  Line 158:6:  React Hook useEffect has a missing dependency: 'isLoading'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/services/StellarHorizonService.js
+  Line 308:3:  Duplicate name 'fetchRecentTrades'  no-dupe-class-members
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/ClicWorldWebsite.js
+  Line 29:5:  'activeService' is assigned a value but never used  no-unused-vars
+  Line 30:5:  'refreshPrice' is assigned a value but never used   no-unused-vars
+
+src/hooks/useClixPriceDual.js
+  Line 216:6:  React Hook useEffect has a missing dependency: 'isLoading'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/hooks/useClixPriceEnhanced.js
+  Line 158:6:  React Hook useEffect has a missing dependency: 'isLoading'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/services/StellarHorizonService.js
+  Line 308:3:  Duplicate name 'fetchRecentTrades'  no-dupe-class-members
+
+webpack compiled with 1 warning
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/ClicWorldWebsite.js
+  Line 29:5:  'activeService' is assigned a value but never used  no-unused-vars
+  Line 30:5:  'refreshPrice' is assigned a value but never used   no-unused-vars
+
+src/hooks/useClixPriceDual.js
+  Line 216:6:  React Hook useEffect has a missing dependency: 'isLoading'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/hooks/useClixPriceEnhanced.js
+  Line 158:6:  React Hook useEffect has a missing dependency: 'isLoading'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/services/StellarHorizonService.js
+  Line 308:3:  Duplicate name 'fetchRecentTrades'  no-dupe-class-members
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/ClicWorldWebsite.js
+  Line 29:5:  'activeService' is assigned a value but never used  no-unused-vars
+  Line 30:5:  'refreshPrice' is assigned a value but never used   no-unused-vars
+
+src/hooks/useClixPriceDual.js
+  Line 216:6:  React Hook useEffect has a missing dependency: 'isLoading'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/hooks/useClixPriceEnhanced.js
+  Line 158:6:  React Hook useEffect has a missing dependency: 'isLoading'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/services/StellarHorizonService.js
+  Line 308:3:  Duplicate name 'fetchRecentTrades'  no-dupe-class-members
+
+webpack compiled with 1 warning
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/ClicWorldWebsite.js
+  Line 29:5:  'activeService' is assigned a value but never used  no-unused-vars
+  Line 30:5:  'refreshPrice' is assigned a value but never used   no-unused-vars
+
+src/hooks/useClixPriceDual.js
+  Line 216:6:  React Hook useEffect has a missing dependency: 'isLoading'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/hooks/useClixPriceEnhanced.js
+  Line 158:6:  React Hook useEffect has a missing dependency: 'isLoading'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/services/StellarHorizonService.js
+  Line 308:3:  Duplicate name 'fetchRecentTrades'  no-dupe-class-members
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/ClicWorldWebsite.js
+  Line 29:5:  'activeService' is assigned a value but never used  no-unused-vars
+  Line 30:5:  'refreshPrice' is assigned a value but never used   no-unused-vars
+
+src/hooks/useClixPriceDual.js
+  Line 216:6:  React Hook useEffect has a missing dependency: 'isLoading'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/hooks/useClixPriceEnhanced.js
+  Line 158:6:  React Hook useEffect has a missing dependency: 'isLoading'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/services/StellarHorizonService.js
+  Line 308:3:  Duplicate name 'fetchRecentTrades'  no-dupe-class-members
+
+webpack compiled with 1 warning
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/ClicWorldWebsite.js
+  Line 29:5:  'activeService' is assigned a value but never used  no-unused-vars
+  Line 30:5:  'refreshPrice' is assigned a value but never used   no-unused-vars
+
+src/hooks/useClixPriceDual.js
+  Line 216:6:  React Hook useEffect has a missing dependency: 'isLoading'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/hooks/useClixPriceEnhanced.js
+  Line 158:6:  React Hook useEffect has a missing dependency: 'isLoading'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/services/StellarHorizonService.js
+  Line 308:3:  Duplicate name 'fetchRecentTrades'  no-dupe-class-members
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/ClicWorldWebsite.js
+  Line 29:5:  'activeService' is assigned a value but never used  no-unused-vars
+  Line 30:5:  'refreshPrice' is assigned a value but never used   no-unused-vars
+
+src/hooks/useClixPriceDual.js
+  Line 216:6:  React Hook useEffect has a missing dependency: 'isLoading'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/hooks/useClixPriceEnhanced.js
+  Line 158:6:  React Hook useEffect has a missing dependency: 'isLoading'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/services/StellarHorizonService.js
+  Line 308:3:  Duplicate name 'fetchRecentTrades'  no-dupe-class-members
+
+webpack compiled with 1 warning
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/ClicWorldWebsite.js
+  Line 29:5:  'activeService' is assigned a value but never used  no-unused-vars
+  Line 30:5:  'refreshPrice' is assigned a value but never used   no-unused-vars
+
+src/hooks/useClixPriceDual.js
+  Line 216:6:  React Hook useEffect has a missing dependency: 'isLoading'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/hooks/useClixPriceEnhanced.js
+  Line 158:6:  React Hook useEffect has a missing dependency: 'isLoading'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/services/StellarHorizonService.js
+  Line 308:3:  Duplicate name 'fetchRecentTrades'  no-dupe-class-members
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/ClicWorldWebsite.js
+  Line 29:5:  'activeService' is assigned a value but never used  no-unused-vars
+  Line 30:5:  'refreshPrice' is assigned a value but never used   no-unused-vars
+
+src/hooks/useClixPriceDual.js
+  Line 216:6:  React Hook useEffect has a missing dependency: 'isLoading'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/hooks/useClixPriceEnhanced.js
+  Line 158:6:  React Hook useEffect has a missing dependency: 'isLoading'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/services/StellarHorizonService.js
+  Line 308:3:  Duplicate name 'fetchRecentTrades'  no-dupe-class-members
+
+webpack compiled with 1 warning
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/ClicWorldWebsite.js
+  Line 29:5:  'activeService' is assigned a value but never used  no-unused-vars
+  Line 30:5:  'refreshPrice' is assigned a value but never used   no-unused-vars
+
+src/hooks/useClixPriceDual.js
+  Line 216:6:  React Hook useEffect has a missing dependency: 'isLoading'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/hooks/useClixPriceEnhanced.js
+  Line 158:6:  React Hook useEffect has a missing dependency: 'isLoading'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/services/StellarHorizonService.js
+  Line 308:3:  Duplicate name 'fetchRecentTrades'  no-dupe-class-members
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/ClicWorldWebsite.js
+  Line 29:5:  'activeService' is assigned a value but never used  no-unused-vars
+  Line 30:5:  'refreshPrice' is assigned a value but never used   no-unused-vars
+
+src/hooks/useClixPriceDual.js
+  Line 216:6:  React Hook useEffect has a missing dependency: 'isLoading'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/hooks/useClixPriceEnhanced.js
+  Line 158:6:  React Hook useEffect has a missing dependency: 'isLoading'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/services/StellarHorizonService.js
+  Line 308:3:  Duplicate name 'fetchRecentTrades'  no-dupe-class-members
+
+webpack compiled with 1 warning
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/ClicWorldWebsite.js
+  Line 29:5:  'activeService' is assigned a value but never used  no-unused-vars
+  Line 30:5:  'refreshPrice' is assigned a value but never used   no-unused-vars
+
+src/hooks/useClixPriceDual.js
+  Line 216:6:  React Hook useEffect has a missing dependency: 'isLoading'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/hooks/useClixPriceEnhanced.js
+  Line 158:6:  React Hook useEffect has a missing dependency: 'isLoading'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/ClicWorldWebsite.js
+  Line 29:5:  'activeService' is assigned a value but never used  no-unused-vars
+  Line 30:5:  'refreshPrice' is assigned a value but never used   no-unused-vars
+
+src/hooks/useClixPriceDual.js
+  Line 216:6:  React Hook useEffect has a missing dependency: 'isLoading'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/hooks/useClixPriceEnhanced.js
+  Line 158:6:  React Hook useEffect has a missing dependency: 'isLoading'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+webpack compiled with 1 warning
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/ClicWorldWebsite.js
+  Line 29:5:  'activeService' is assigned a value but never used  no-unused-vars
+  Line 30:5:  'refreshPrice' is assigned a value but never used   no-unused-vars
+
+src/hooks/useClixPriceDual.js
+  Line 216:6:  React Hook useEffect has a missing dependency: 'isLoading'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/hooks/useClixPriceEnhanced.js
+  Line 158:6:  React Hook useEffect has a missing dependency: 'isLoading'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/ClicWorldWebsite.js
+  Line 29:5:  'activeService' is assigned a value but never used  no-unused-vars
+  Line 30:5:  'refreshPrice' is assigned a value but never used   no-unused-vars
+
+src/hooks/useClixPriceDual.js
+  Line 216:6:  React Hook useEffect has a missing dependency: 'isLoading'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/hooks/useClixPriceEnhanced.js
+  Line 158:6:  React Hook useEffect has a missing dependency: 'isLoading'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+webpack compiled with 1 warning
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/ClicWorldWebsite.js
+  Line 29:5:  'activeService' is assigned a value but never used  no-unused-vars
+  Line 30:5:  'refreshPrice' is assigned a value but never used   no-unused-vars
+
+src/hooks/useClixPriceDual.js
+  Line 216:6:  React Hook useEffect has a missing dependency: 'isLoading'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/hooks/useClixPriceEnhanced.js
+  Line 158:6:  React Hook useEffect has a missing dependency: 'isLoading'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/ClicWorldWebsite.js
+  Line 29:5:  'activeService' is assigned a value but never used  no-unused-vars
+  Line 30:5:  'refreshPrice' is assigned a value but never used   no-unused-vars
+
+src/hooks/useClixPriceDual.js
+  Line 216:6:  React Hook useEffect has a missing dependency: 'isLoading'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/hooks/useClixPriceEnhanced.js
+  Line 158:6:  React Hook useEffect has a missing dependency: 'isLoading'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+webpack compiled with 1 warning
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/ClicWorldWebsite.js
+  Line 29:5:  'activeService' is assigned a value but never used  no-unused-vars
+  Line 30:5:  'refreshPrice' is assigned a value but never used   no-unused-vars
+
+src/hooks/useClixPriceDual.js
+  Line 216:6:  React Hook useEffect has a missing dependency: 'isLoading'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/hooks/useClixPriceEnhanced.js
+  Line 158:6:  React Hook useEffect has a missing dependency: 'isLoading'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/ClicWorldWebsite.js
+  Line 29:5:  'activeService' is assigned a value but never used  no-unused-vars
+  Line 30:5:  'refreshPrice' is assigned a value but never used   no-unused-vars
+
+src/hooks/useClixPriceDual.js
+  Line 216:6:  React Hook useEffect has a missing dependency: 'isLoading'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/hooks/useClixPriceEnhanced.js
+  Line 158:6:  React Hook useEffect has a missing dependency: 'isLoading'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+webpack compiled with 1 warning
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/ClicWorldWebsite.js
+  Line 29:5:  'activeService' is assigned a value but never used  no-unused-vars
+  Line 30:5:  'refreshPrice' is assigned a value but never used   no-unused-vars
+
+src/hooks/useClixPriceDual.js
+  Line 216:6:  React Hook useEffect has a missing dependency: 'isLoading'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/hooks/useClixPriceEnhanced.js
+  Line 158:6:  React Hook useEffect has a missing dependency: 'isLoading'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/ClicWorldWebsite.js
+  Line 29:5:  'activeService' is assigned a value but never used  no-unused-vars
+  Line 30:5:  'refreshPrice' is assigned a value but never used   no-unused-vars
+
+src/hooks/useClixPriceDual.js
+  Line 216:6:  React Hook useEffect has a missing dependency: 'isLoading'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/hooks/useClixPriceEnhanced.js
+  Line 158:6:  React Hook useEffect has a missing dependency: 'isLoading'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+webpack compiled with 1 warning
+Compiling...
+Failed to compile.
+
+[eslint] 
+src/services/StellarHorizonService.js
+  Line 180:28:  'xlmToUSD' is not defined  no-undef
+  Line 181:35:  'xlmToUSD' is not defined  no-undef
+  Line 182:70:  'xlmToUSD' is not defined  no-undef
+  Line 193:28:  'xlmToUSD' is not defined  no-undef
+  Line 194:35:  'xlmToUSD' is not defined  no-undef
+  Line 195:74:  'xlmToUSD' is not defined  no-undef
+
+Search for the keywords to learn more about each error.
+WARNING in [eslint] 
+src/components/ClicWorldWebsite.js
+  Line 29:5:  'activeService' is assigned a value but never used  no-unused-vars
+  Line 30:5:  'refreshPrice' is assigned a value but never used   no-unused-vars
+
+src/hooks/useClixPriceDual.js
+  Line 216:6:  React Hook useEffect has a missing dependency: 'isLoading'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/hooks/useClixPriceEnhanced.js
+  Line 158:6:  React Hook useEffect has a missing dependency: 'isLoading'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+ERROR in [eslint] 
+src/services/StellarHorizonService.js
+  Line 180:28:  'xlmToUSD' is not defined  no-undef
+  Line 181:35:  'xlmToUSD' is not defined  no-undef
+  Line 182:70:  'xlmToUSD' is not defined  no-undef
+  Line 193:28:  'xlmToUSD' is not defined  no-undef
+  Line 194:35:  'xlmToUSD' is not defined  no-undef
+  Line 195:74:  'xlmToUSD' is not defined  no-undef
+
+Search for the keywords to learn more about each error.
+
+webpack compiled with 1 error and 1 warning
+Compiling...
+Failed to compile.
+
+[eslint] 
+src/services/StellarHorizonService.js
+  Line 180:28:  'xlmToUSD' is not defined  no-undef
+  Line 181:35:  'xlmToUSD' is not defined  no-undef
+  Line 182:70:  'xlmToUSD' is not defined  no-undef
+  Line 193:28:  'xlmToUSD' is not defined  no-undef
+  Line 194:35:  'xlmToUSD' is not defined  no-undef
+  Line 195:74:  'xlmToUSD' is not defined  no-undef
+
+Search for the keywords to learn more about each error.
+WARNING in [eslint] 
+src/components/ClicWorldWebsite.js
+  Line 29:5:  'activeService' is assigned a value but never used  no-unused-vars
+  Line 30:5:  'refreshPrice' is assigned a value but never used   no-unused-vars
+
+src/hooks/useClixPriceDual.js
+  Line 133:6:  React Hook useCallback has a missing dependency: 'xlmToUSD'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  Line 216:6:  React Hook useEffect has a missing dependency: 'isLoading'. Either include it or remove the dependency array   react-hooks/exhaustive-deps
+  Line 274:6:  React Hook useCallback has a missing dependency: 'xlmToUSD'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/hooks/useClixPriceEnhanced.js
+  Line 158:6:  React Hook useEffect has a missing dependency: 'isLoading'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+ERROR in [eslint] 
+src/services/StellarHorizonService.js
+  Line 180:28:  'xlmToUSD' is not defined  no-undef
+  Line 181:35:  'xlmToUSD' is not defined  no-undef
+  Line 182:70:  'xlmToUSD' is not defined  no-undef
+  Line 193:28:  'xlmToUSD' is not defined  no-undef
+  Line 194:35:  'xlmToUSD' is not defined  no-undef
+  Line 195:74:  'xlmToUSD' is not defined  no-undef
+
+Search for the keywords to learn more about each error.
+
+webpack compiled with 1 error and 1 warning
+Compiling...
+Failed to compile.
+
+[eslint] 
+src/services/StellarHorizonService.js
+  Line 180:28:  'xlmToUSD' is not defined  no-undef
+  Line 181:35:  'xlmToUSD' is not defined  no-undef
+  Line 182:70:  'xlmToUSD' is not defined  no-undef
+  Line 193:28:  'xlmToUSD' is not defined  no-undef
+  Line 194:35:  'xlmToUSD' is not defined  no-undef
+  Line 195:74:  'xlmToUSD' is not defined  no-undef
+
+Search for the keywords to learn more about each error.
+WARNING in [eslint] 
+src/components/ClicWorldWebsite.js
+  Line 29:5:  'activeService' is assigned a value but never used  no-unused-vars
+  Line 30:5:  'refreshPrice' is assigned a value but never used   no-unused-vars
+
+src/hooks/useClixPriceDual.js
+  Line 133:6:  React Hook useCallback has a missing dependency: 'xlmToUSD'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  Line 216:6:  React Hook useEffect has a missing dependency: 'isLoading'. Either include it or remove the dependency array   react-hooks/exhaustive-deps
+  Line 274:6:  React Hook useCallback has a missing dependency: 'xlmToUSD'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/hooks/useClixPriceEnhanced.js
+  Line 158:6:  React Hook useEffect has a missing dependency: 'isLoading'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+ERROR in [eslint] 
+src/services/StellarHorizonService.js
+  Line 180:28:  'xlmToUSD' is not defined  no-undef
+  Line 181:35:  'xlmToUSD' is not defined  no-undef
+  Line 182:70:  'xlmToUSD' is not defined  no-undef
+  Line 193:28:  'xlmToUSD' is not defined  no-undef
+  Line 194:35:  'xlmToUSD' is not defined  no-undef
+  Line 195:74:  'xlmToUSD' is not defined  no-undef
+
+Search for the keywords to learn more about each error.
+
+webpack compiled with 1 error and 1 warning
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/ClicWorldWebsite.js
+  Line 29:5:  'activeService' is assigned a value but never used  no-unused-vars
+  Line 30:5:  'refreshPrice' is assigned a value but never used   no-unused-vars
+
+src/hooks/useClixPriceDual.js
+  Line 133:6:  React Hook useCallback has a missing dependency: 'xlmToUSD'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  Line 216:6:  React Hook useEffect has a missing dependency: 'isLoading'. Either include it or remove the dependency array   react-hooks/exhaustive-deps
+  Line 274:6:  React Hook useCallback has a missing dependency: 'xlmToUSD'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/hooks/useClixPriceEnhanced.js
+  Line 158:6:  React Hook useEffect has a missing dependency: 'isLoading'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/ClicWorldWebsite.js
+  Line 29:5:  'activeService' is assigned a value but never used  no-unused-vars
+  Line 30:5:  'refreshPrice' is assigned a value but never used   no-unused-vars
+
+src/hooks/useClixPriceDual.js
+  Line 133:6:  React Hook useCallback has a missing dependency: 'xlmToUSD'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  Line 216:6:  React Hook useEffect has a missing dependency: 'isLoading'. Either include it or remove the dependency array   react-hooks/exhaustive-deps
+  Line 274:6:  React Hook useCallback has a missing dependency: 'xlmToUSD'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/hooks/useClixPriceEnhanced.js
+  Line 158:6:  React Hook useEffect has a missing dependency: 'isLoading'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+webpack compiled with 1 warning

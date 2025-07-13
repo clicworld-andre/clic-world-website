@@ -3,6 +3,9 @@ import React from 'react';
 const PatentModal = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
 
+  // Use the PUBLIC_URL environment variable or fallback to current path
+  const pdfPath = `${process.env.PUBLIC_URL}/US11562060.pdf?v=${Date.now()}`;
+
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
       <div className="bg-white rounded-2xl max-w-6xl max-h-[95vh] w-full overflow-hidden">
@@ -32,7 +35,7 @@ const PatentModal = ({ isOpen, onClose }) => {
         {/* PDF Content */}
         <div className="h-[80vh] overflow-hidden">
           <iframe
-            src={`/secure-portable-vault-patent.pdf?v=${Date.now()}`}
+            src={pdfPath}
             className="w-full h-full border-0"
             title="US Patent 11,562,060 B2 - Secure Private Portable Vault Container"
           />
@@ -42,7 +45,7 @@ const PatentModal = ({ isOpen, onClose }) => {
         <div className="bg-gray-50 p-4 text-center">
           <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
             <a 
-              href={`/secure-portable-vault-patent.pdf?v=${Date.now()}`}
+              href={pdfPath}
               target="_blank" 
               rel="noopener noreferrer"
               className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-semibold transition-colors"

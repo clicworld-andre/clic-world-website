@@ -1,6 +1,6 @@
 import React from 'react';
 
-const HeroSection = ({ clixPrice, scrollToSection }) => {
+const HeroSection = ({ clixPriceUSD, clixPriceXLM, xlmToUSD, scrollToSection }) => {
   return (
     <section id="home" className="bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 min-h-screen flex items-center relative overflow-hidden pt-32">
       <div className="container mx-auto px-4">
@@ -17,20 +17,43 @@ const HeroSection = ({ clixPrice, scrollToSection }) => {
               members across Africa and the World.
             </p>
 
-            {/* Enhanced Live Stats */}
+            {/* Enhanced Live Stats with Dual Pricing */}
             <div className="grid md:grid-cols-2 gap-4 mb-8">
-              {[
-                { value: `$${clixPrice}`, label: 'CLIX Token Price (USD)', icon: '💎' },
-                { value: '90%+', label: 'Community Bank Repayment Rate', icon: '📈' },
-                { value: '500M', label: 'African Cooperative Members', icon: '🏘️' },
-                { value: '75%', label: 'Profits Stay in Communities', icon: '🤝' }
-              ].map((stat, index) => (
-                <div key={index} className="bg-white/10 backdrop-blur-lg p-4 rounded-xl border border-white/20">
-                  <div className="text-2xl mb-1">{stat.icon}</div>
-                  <div className="text-2xl font-bold text-yellow-400">{stat.value}</div>
-                  <div className="text-sm text-white/80">{stat.label}</div>
+              {/* CLIX USD Price */}
+              <div className="bg-white/10 backdrop-blur-lg p-4 rounded-xl border border-white/20">
+                <div className="text-2xl mb-1">💎</div>
+                <div className="text-2xl font-bold text-yellow-400">
+                  {clixPriceUSD ? `$${clixPriceUSD}` : 'N/A'}
                 </div>
-              ))}
+                <div className="text-sm text-white/80">CLIX Token Price (USD)</div>
+              </div>
+              
+              {/* CLIX XLM Price */}
+              <div className="bg-white/10 backdrop-blur-lg p-4 rounded-xl border border-white/20">
+                <div className="text-2xl mb-1">💫</div>
+                <div className="text-2xl font-bold text-blue-300">
+                  {clixPriceXLM ? `${clixPriceXLM}` : 'N/A'}
+                </div>
+                <div className="text-sm text-white/80">CLIX Price (XLM)</div>
+                {xlmToUSD && (
+                  <div className="text-xs text-white/60 mt-1">
+                    XLM/USD: ${xlmToUSD}
+                  </div>
+                )}
+              </div>
+              
+              {/* Community Stats */}
+              <div className="bg-white/10 backdrop-blur-lg p-4 rounded-xl border border-white/20">
+                <div className="text-2xl mb-1">📈</div>
+                <div className="text-2xl font-bold text-yellow-400">90%+</div>
+                <div className="text-sm text-white/80">Community Bank Repayment Rate</div>
+              </div>
+              
+              <div className="bg-white/10 backdrop-blur-lg p-4 rounded-xl border border-white/20">
+                <div className="text-2xl mb-1">🏘️</div>
+                <div className="text-2xl font-bold text-yellow-400">500M</div>
+                <div className="text-sm text-white/80">African Cooperative Members</div>
+              </div>
             </div>
           </div>
 

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CLIX Price Verification Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .result { margin: 10px 0; padding: 10px; border: 1px solid #ddd; border-radius: 5px; }
+        .success { background-color: #e8f5e8; border-color: #4caf50; }
+        .error { background-color: #ffeaea; border-color: #f44336; }
+        .info { background-color: #e3f2fd; border-color: #2196f3; }
+        pre { background: #f5f5f5; padding: 10px; border-radius: 3px; overflow-x: auto; }
+        .price-display { font-size: 24px; font-weight: bold; color: #2e7d32; }
+    </style>
+</head>
+<body>
+    <h1>🧪 CLIX Price Verification Test</h1>
+    <p>This test verifies that we're reading the correct prices from the Stellar order books.</p>
+    
+    <button onclick="testPrices()" style="padding: 10px 20px; font-size: 16px; background: #4caf50; color: white; border: none; border-radius: 5px; cursor: pointer;">🔄 Test Current Prices</button>
+    
+    <div id="results"></div>
+    
+    <script>
+    const CLIX_ISSUER = 'GBCJSKXTZX5CYKJGBGQPYEATLSGR4EPRUOL7EKIDCDOZ4UC67BBQRCSO';
+    const USDC_ISSUER = 'GA5ZSEJYB37JRC5AVCIA5MOP4RHTM335X2KGX3IHOJAPP5RE34K4KZVN';
+    
+    async function testPrices() {
+        const results = document.getElementById('results');
+        results.innerHTML = '<div class="info">🔍 Testing CLIX prices from Stellar Horizon API...</div>';
+        
+        let usdPrice = null;
+        let xlmPrice = null;
+        let xlmUsdRate = null;
+        
+        // Test 1: Get XLM/USD rate from CoinGecko
+        try {
+            results.innerHTML += '<div class="info"><h3>1️⃣ Getting XLM/USD Rate from CoinGecko</h3></div>';
+            const xlmResponse = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=stellar&vs_currencies=usd');
+            const xlmData = await xlmResponse.json();
+            xlmUsdRate = xlmData?.stellar?.usd;
+            results.innerHTML += `<div class="success">✅ XLM/USD Rate: $${xlmUsdRate}</div>`;
+        } catch (error) {
+            results.innerHTML += `<div class="error">❌ Failed to get XLM rate: ${error.message}</div>`;
+            xlmUsdRate = null; // No fake fallback
+            results.innerHTML += '<div class="error">⚠️ XLM/USD rate unavailable - conversions will not be shown</div>';
+        }
+        
+        // Test 2: CLIX/USDC Order Book
+        try {
+            results.innerHTML += '<div class="info"><h3>2️⃣ Testing CLIX/USDC Order Book</h3></div>';
+            const usdcUrl = `https://horizon.stellar.org/order_book?selling_asset_type=credit_alphanum4&selling_asset_code=CLIX&selling_asset_issuer=${CLIX_ISSUER}&buying_asset_type=credit_alphanum4&buying_asset_code=USDC&buying_asset_issuer=${USDC_ISSUER}`;
+            
+            const response = await fetch(usdcUrl);
+            results.innerHTML += `<div class="info">📡 Response Status: ${response.status}</div>`;
+            
+            if (response.ok) {
+                const data = await response.json();
+                results.innerHTML += `<div class="info">📊 Asks: ${data.asks?.length || 0}, Bids: ${data.bids?.length || 0}</div>`;
+                
+                if (data.asks?.length > 0) {
+                    usdPrice = parseFloat(data.asks[0].price);
+                    results.innerHTML += `<div class="success">✅ CLIX/USDC Ask Price: ${usdPrice} USDC per CLIX</div>`;
+                    results.innerHTML += `<pre>${JSON.stringify(data.asks[0], null, 2)}</pre>`;
+                } else if (data.bids?.length > 0) {
+                    usdPrice = parseFloat(data.bids[0].price);
+                    results.innerHTML += `<div class="success">✅ CLIX/USDC Bid Price: ${usdPrice} USDC per CLIX</div>`;
+                    results.innerHTML += `<pre>${JSON.stringify(data.bids[0], null, 2)}</pre>`;
+                } else {
+                    results.innerHTML += '<div class="error">❌ No CLIX/USDC orders found</div>';
+                }
+            } else {
+                const errorData = await response.text();
+                results.innerHTML += `<div class="error">❌ Order book request failed: ${errorData}</div>`;
+            }
+        } catch (error) {
+            results.innerHTML += `<div class="error">❌ CLIX/USDC test failed: ${error.message}</div>`;
+        }
+        
+        // Test 3: CLIX/XLM Order Book
+        try {
+            results.innerHTML += '<div class="info"><h3>3️⃣ Testing CLIX/XLM Order Book</h3></div>';
+            const xlmUrl = `https://horizon.stellar.org/order_book?selling_asset_type=credit_alphanum4&selling_asset_code=CLIX&selling_asset_issuer=${CLIX_ISSUER}&buying_asset_type=native`;
+            
+            const response = await fetch(xlmUrl);
+            results.innerHTML += `<div class="info">📡 Response Status: ${response.status}</div>`;
+            
+            if (response.ok) {
+                const data = await response.json();
+                results.innerHTML += `<div class="info">📊 Asks: ${data.asks?.length || 0}, Bids: ${data.bids?.length || 0}</div>`;
+                
+                if (data.asks?.length > 0) {
+                    xlmPrice = parseFloat(data.asks[0].price);
+                    results.innerHTML += `<div class="success">✅ CLIX/XLM Ask Price: ${xlmPrice} XLM per CLIX</div>`;
+                    results.innerHTML += `<pre>${JSON.stringify(data.asks[0], null, 2)}</pre>`;
+                } else if (data.bids?.length > 0) {
+                    xlmPrice = parseFloat(data.bids[0].price);
+                    results.innerHTML += `<div class="success">✅ CLIX/XLM Bid Price: ${xlmPrice} XLM per CLIX</div>`;
+                    results.innerHTML += `<pre>${JSON.stringify(data.bids[0], null, 2)}</pre>`;
+                } else {
+                    results.innerHTML += '<div class="error">❌ No CLIX/XLM orders found</div>';
+                }
+            } else {
+                const errorData = await response.text();
+                results.innerHTML += `<div class="error">❌ Order book request failed: ${errorData}</div>`;
+            }
+        } catch (error) {
+            results.innerHTML += `<div class="error">❌ CLIX/XLM test failed: ${error.message}</div>`;
+        }
+        
+        // Test 4: Calculate cross-conversion and display final results
+        results.innerHTML += '<div class="info"><h3>4️⃣ Final Price Analysis</h3></div>';
+        
+        if (usdPrice) {
+            results.innerHTML += `<div class="success price-display">💰 CLIX/USD: $${usdPrice.toFixed(6)}</div>`;
+        }
+        
+        if (xlmPrice) {
+            results.innerHTML += `<div class="success price-display">💫 CLIX/XLM: ${xlmPrice.toFixed(7)} XLM</div>`;
+            
+            // Calculate USD equivalent from XLM price
+            if (xlmUsdRate) {
+                const calculatedUSD = xlmPrice * xlmUsdRate;
+                results.innerHTML += `<div class="info">🔄 Calculated USD from XLM: ${xlmPrice.toFixed(7)} * ${xlmUsdRate} = $${calculatedUSD.toFixed(6)}</div>`;
+            }
+        }
+        
+        if (!usdPrice && !xlmPrice) {
+            results.innerHTML += '<div class="error">❌ No CLIX prices found in any market</div>';
+        }
+        
+        // Compare with expected values from screenshots
+        results.innerHTML += '<div class="info"><h3>5️⃣ Comparison with Expected Values</h3></div>';
+        results.innerHTML += '<div class="info">Expected from screenshots:</div>';
+        results.innerHTML += '<div class="info">• CLIX/USDC: ~0.0005683 USDC</div>';
+        results.innerHTML += '<div class="info">• CLIX/XLM: ~0.0012968 XLM</div>';
+        
+        if (usdPrice) {
+            const usdMatch = Math.abs(usdPrice - 0.0005683) < 0.0001;
+            results.innerHTML += `<div class="${usdMatch ? 'success' : 'error'}">USD Price Match: ${usdMatch ? '✅' : '❌'} (Diff: ${Math.abs(usdPrice - 0.0005683).toFixed(6)})</div>`;
+        }
+        
+        if (xlmPrice) {
+            const xlmMatch = Math.abs(xlmPrice - 0.0012968) < 0.0005;
+            results.innerHTML += `<div class="${xlmMatch ? 'success' : 'error'}">XLM Price Match: ${xlmMatch ? '✅' : '❌'} (Diff: ${Math.abs(xlmPrice - 0.0012968).toFixed(7)})</div>`;
+        }
+        
+        results.innerHTML += '<div class="success"><h3>✅ Test Complete!</h3></div>';
+    }
+    
+    // Auto-run test on page load
+    window.onload = testPrices;
+    </script>
+</body>
+</html>

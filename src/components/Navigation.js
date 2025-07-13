@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Navigation = ({ clixPrice, activeSection, scrollToSection, setActiveSection }) => {
+const Navigation = ({ clixPriceUSD, clixPriceXLM, xlmToUSD, activeSection, scrollToSection, setActiveSection }) => {
   return (
     <nav className="fixed top-0 w-full z-50 bg-white shadow-lg border-b border-gray-200">
       {/* Top Bar */}
@@ -8,13 +8,29 @@ const Navigation = ({ clixPrice, activeSection, scrollToSection, setActiveSectio
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center text-sm">
             <div className="flex items-center space-x-6">
-              <span className="flex items-center">
-                <img 
-                  src={`${process.env.PUBLIC_URL}/clix-logo-v2.png`}
-                  alt="CLIX Token"
-                  className="w-4 h-4 mr-2"
-                />
-                CLIX ${clixPrice}
+              <span className="flex items-center space-x-4">
+                <span className="flex items-center">
+                  <img 
+                    src={`${process.env.PUBLIC_URL}/clix-logo-v2.png`}
+                    alt="CLIX Token"
+                    className="w-4 h-4 mr-2"
+                  />
+                  <span className="hidden sm:inline">CLIX:</span>
+                  <span className="ml-1 font-semibold">
+                    {clixPriceUSD ? `${clixPriceUSD}` : 'N/A'}
+                  </span>
+                </span>
+                <span className="hidden md:flex items-center text-yellow-300">
+                  <span>💫</span>
+                  <span className="ml-1">
+                    {clixPriceXLM ? `${clixPriceXLM} XLM` : 'N/A'}
+                  </span>
+                </span>
+                {xlmToUSD && (
+                  <span className="hidden lg:inline text-xs opacity-75">
+                    (XLM: ${xlmToUSD})
+                  </span>
+                )}
               </span>
               <span className="flex items-center">
                 Clic.World | Where Sound Money Meets Community Power
