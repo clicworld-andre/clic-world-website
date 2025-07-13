@@ -1,22 +1,13 @@
 {
   "files": {
-    "main.css": "/clic-world-website/static/css/main.d87d330e.css",
-    "main.js": "/clic-world-website/static/js/main.f65a56ee.js",
-    "static/media/abc-logo.jpg": "/clic-world-website/static/media/abc-logo.9e8d4c592a0578c2d3f6.jpg",
-    "static/media/community-group.jpg": "/clic-world-website/static/media/community-group.afa440811dbd6a21767d.jpg",
-    "static/media/anthropic-logo.png": "/clic-world-website/static/media/anthropic-logo.b9c7b5bc886464e0b01e.png",
-    "static/media/pryvaz-logo.png": "/clic-world-website/static/media/pryvaz-logo.c8e9e0d95b594d05809a.png",
-    "static/media/interswitch-logo.svg": "/clic-world-website/static/media/interswitch-logo.2aa9a5351c774704a1c48b441845bf2b.svg",
-    "static/media/kinesis-logo.png": "/clic-world-website/static/media/kinesis-logo.22f2991afd4e6cc26758.png",
-    "static/media/altx-logo.png": "/clic-world-website/static/media/altx-logo.816e683c7e815b34041e.png",
-    "static/media/drfq-logo.svg": "/clic-world-website/static/media/drfq-logo.e0a29f5e3b5069f40cde30e529c878d8.svg",
-    "static/media/yellowcard-logo.svg": "/clic-world-website/static/media/yellowcard-logo.ec08f4d6ba803ffc617358e2fda7167e.svg",
+    "main.css": "/clic-world-website/static/css/main.25274038.css",
+    "main.js": "/clic-world-website/static/js/main.fbe3276a.js",
     "index.html": "/clic-world-website/index.html",
-    "main.d87d330e.css.map": "/clic-world-website/static/css/main.d87d330e.css.map",
-    "main.f65a56ee.js.map": "/clic-world-website/static/js/main.f65a56ee.js.map"
+    "main.25274038.css.map": "/clic-world-website/static/css/main.25274038.css.map",
+    "main.fbe3276a.js.map": "/clic-world-website/static/js/main.fbe3276a.js.map"
   },
   "entrypoints": [
-    "static/css/main.d87d330e.css",
-    "static/js/main.f65a56ee.js"
+    "static/css/main.25274038.css",
+    "static/js/main.fbe3276a.js"
   ]
 }
