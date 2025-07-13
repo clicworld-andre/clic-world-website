@@ -4,7 +4,7 @@ const PatentModal = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
 
   // Use the PUBLIC_URL environment variable or fallback to current path
-  const pdfPath = `${process.env.PUBLIC_URL}/US11562060.pdf?v=${Date.now()}`;
+  const pdfPath = `${process.env.PUBLIC_URL}/US11562060.pdf`;
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
