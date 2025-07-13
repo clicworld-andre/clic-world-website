@@ -79,7 +79,7 @@ const ClicWorldWebsite = () => {
         return;
       }
       
-      const sections = ['home', 'about', 'products', 'clix', 'clicbrain', 'pryvaz', 'blog', 'partners', 'contact'];
+      const sections = ['home', 'about', 'clix', 'products', 'clicbrain', 'pryvaz', 'blog', 'partners', 'contact'];
       const current = sections.find(section => {
         const element = document.getElementById(section);
         if (element) {
@@ -153,16 +153,16 @@ const ClicWorldWebsite = () => {
           <AboutSectionEnhanced />
         </section>
         
-        <section id="products">
-          <ProductsSection />
-        </section>
-        
         <section id="clix">
           <ClixSection 
             clixPriceUSD={clixPriceUSD}
             clixPriceXLM={clixPriceXLM}
             xlmToUSD={xlmToUSD}
           />
+        </section>
+        
+        <section id="products">
+          <ProductsSection />
         </section>
         
         <section id="clicbrain">
