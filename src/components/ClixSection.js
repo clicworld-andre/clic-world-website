@@ -125,45 +125,6 @@ const ClixSection = ({ clixPriceUSD, clixPriceXLM, xlmToUSD }) => {
             <button onClick={openThirdWayPost} className="text-green-600 hover:text-blue-700 underline transition-colors cursor-pointer bg-transparent border-none p-0 font-inherit text-inherit leading-inherit">CLIX: Finance's Third Way</button>
           </h2>
           
-          {/* Live Price Display */}
-          <div className="bg-gradient-to-r from-green-50 via-blue-50 to-purple-50 rounded-2xl p-6 border border-green-200 max-w-4xl mx-auto mb-8">
-            <div className="flex justify-center items-center space-x-8 text-center">
-              <div className="flex flex-col items-center">
-                <div className="text-3xl font-bold text-green-600 mb-1">
-                  {clixPriceUSD ? `${clixPriceUSD}` : 'N/A'}
-                </div>
-                <div className="text-sm text-gray-600 font-medium">USD Price</div>
-              </div>
-              
-              <div className="h-12 w-px bg-gray-300"></div>
-              
-              <div className="flex flex-col items-center">
-                <div className="text-3xl font-bold text-blue-600 mb-1">
-                  {clixPriceXLM ? `${clixPriceXLM}` : 'N/A'}
-                </div>
-                <div className="text-sm text-gray-600 font-medium">XLM Price</div>
-              </div>
-              
-              {xlmToUSD && (
-                <>
-                  <div className="h-12 w-px bg-gray-300"></div>
-                  <div className="flex flex-col items-center">
-                    <div className="text-2xl font-bold text-purple-600 mb-1">
-                      ${xlmToUSD}
-                    </div>
-                    <div className="text-sm text-gray-600 font-medium">XLM/USD Rate</div>
-                  </div>
-                </>
-              )}
-            </div>
-            <div className="text-center mt-4">
-              <div className="inline-flex items-center space-x-2 text-xs text-gray-500">
-                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                <span>Live from Stellar Network</span>
-              </div>
-            </div>
-          </div>
-          
           <p className="text-xl text-gray-600 max-w-4xl mx-auto mb-8 leading-relaxed">
             The financial upgrade that puts communities first. CLIX combines a complete social financial platform with a community-owned token, delivering real financial empowerment beyond traditional banking and crypto speculation.
           </p>
