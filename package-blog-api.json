@@ -1,0 +1,42 @@
+{
+  "name": "clic-blog-api",
+  "version": "1.0.0",
+  "description": "Blog API for Clic.World website and ClicMe app",
+  "main": "api/server.js",
+  "scripts": {
+    "start": "node api/server.js",
+    "dev": "nodemon api/server.js",
+    "migrate": "node run-migrations.js",
+    "migrate:reset": "node run-migrations.js --reset",
+    "migrate:dry-run": "node run-migrations.js --dry-run",
+    "setup": "node setup-blog-database.js",
+    "data:migrate": "node migrate-blog-data.js",
+    "test": "npm run migrate:dry-run && echo 'Basic migration test passed'"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "helmet": "^7.0.0",
+    "morgan": "^1.10.0",
+    "express-rate-limit": "^6.8.1",
+    "pg": "^8.11.1",
+    "jsonwebtoken": "^9.0.1",
+    "bcrypt": "^5.1.0",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "keywords": [
+    "blog",
+    "api",
+    "clic.world",
+    "express",
+    "postgresql"
+  ],
+  "author": "Clic.World Team",
+  "license": "MIT"
+}
