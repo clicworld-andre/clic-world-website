@@ -96,9 +96,7 @@ const Navigation = ({ clixPriceUSD, clixPriceXLM, xlmToUSD, activeSection, scrol
           </div>
 
           <div className="flex items-center space-x-3">
-            <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium transition-colors">
-              Join Movement
-            </button>
+            {/* Join Movement button removed */}
           </div>
         </div>
       </div>

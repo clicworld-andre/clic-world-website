@@ -7,12 +7,12 @@ const AboutSectionEnhanced = () => {
   const [selectedPost, setSelectedPost] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   
-  // Find the "Decentralized Money" blog post
-  const decentralizedMoneyPost = blogPosts.find(post => post.slug === 'problem-with-decentralized-money-different-path');
+  // Find the "Third Way" blog post
+  const thirdWayPost = blogPosts.find(post => post.slug === 'clic-world-vision-finance-third-way');
   
-  const openDecentralizedMoneyPost = () => {
-    if (decentralizedMoneyPost) {
-      setSelectedPost(decentralizedMoneyPost);
+  const openThirdWayPost = () => {
+    if (thirdWayPost) {
+      setSelectedPost(thirdWayPost);
       setIsModalOpen(true);
     }
   };
@@ -68,7 +68,7 @@ const AboutSectionEnhanced = () => {
         <div className="text-center mb-20">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
             <button 
-              onClick={openDecentralizedMoneyPost} 
+              onClick={openThirdWayPost} 
               className="text-gray-900 hover:text-blue-700 underline transition-colors cursor-pointer bg-transparent border-none p-0 font-inherit text-inherit leading-inherit"
             >
               Clic.World: A Movement Without Borders
@@ -82,7 +82,13 @@ const AboutSectionEnhanced = () => {
           <div className="max-w-5xl mx-auto">
             <div className="bg-gradient-to-r from-green-50 to-blue-50 rounded-2xl p-12 border border-green-200">
               <h3 className="text-3xl font-bold text-gray-900 mb-6">
-                Finance's <span className="text-green-600">Third Way</span>
+                Finance's{' '}
+                <button 
+                  onClick={openThirdWayPost}
+                  className="text-green-600 hover:text-blue-700 underline transition-colors cursor-pointer bg-transparent border-none p-0 font-inherit text-inherit leading-inherit"
+                >
+                  Third Way
+                </button>
               </h3>
               <p className="text-xl text-gray-700 italic">
                 Rebalancing Influence, Ownership, and Value in the Digital Age
@@ -215,7 +221,7 @@ const AboutSectionEnhanced = () => {
         </div>
       </div>
       
-      {/* Blog Post Modal for "Decentralized Money" */}
+      {/* Blog Post Modal for "Third Way" */}
       <BlogPostModal 
         post={selectedPost}
         isOpen={isModalOpen}

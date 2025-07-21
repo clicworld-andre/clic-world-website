@@ -54,3 +54,11 @@ pids
 
 # Tailwind CSS
 /src/**/*.css.map
+
+# Blog system additions
+server.log
+.env.production
+.env.staging
+*.sql.backup
+*.dump
+api/routes/_backup/

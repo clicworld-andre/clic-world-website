@@ -896,13 +896,15 @@ CEO Clic.World
     id: 5,
     title: "The Problem with 'Decentralized' Money (And Why We're Taking a Different Path)",
     slug: "problem-with-decentralized-money-different-path",
-    excerpt: "I've spent the last 10 years watching the crypto world promise financial revolution while African farmers still wait 30 days to get paid for their milk. Something is fundamentally broken with how we think about decentralization.",
+    excerpt: "I've spent the last 10 years watching the crypto world promise a financial revolution while African farmers and artisanal miners still wait 30 days or more to get paid for their crops or gold, or forced to accept huge discounts for on-site cash payments from unscrupulous middle men.",
     content: `
 # The Problem with "Decentralized" Money (And Why We're Taking a Different Path)
 
-*Originally published on Medium - March 2025*
+![Putting money back in the hands of those creating real value](./Mining%2002%20small.png)
 
-I've spent the last 10 years watching the crypto world promise financial revolution while African farmers still wait 30 days to get paid for their milk.
+*Putting money back in the hands of those creating real value.*
+
+I've spent the last 10 years watching the crypto world promise a financial revolution while African farmers and artisanal miners still wait 30 days or more to get paid for their crops or gold, or forced to accept huge discounts for on-site cash payments from unscrupulous middle men.
 
 Something is fundamentally broken with how we think about decentralization.
 
@@ -925,29 +927,27 @@ The artisanal miners I worked with weren't your typical "unbanked" statistics. T
 
 But here's the absurd part: **the people extracting literal gold from the earth couldn't get paid properly**.
 
-The value chain was Byzantine. Miners would sell to local traders, who sold to regional aggregators, who sold to exporters, who sold to international buyers. Each transaction involved complex negotiations, quality assessments, and logistics coordination. These weren't simple cash deals—we're talking about high-value commodity trading that would make Wall Street traders sweat.
+The value chain was extensive and convoluted. Miners would sell to local traders, who sold to regional aggregators, who sold to exporters, who sold to international buyers. Each transaction involved complex negotiations, quality assessments, and logistics coordination. These weren't simple cash deals—we're talking about high-value commodity trading that would make Wall Street traders sweat.
 
 Yet when it came time for money to flow back down the chain, everything broke down.
 
-The nearest bank was thousands of kilometers away in Kinshasa. Mobile money could handle the equivalent of $50-100, but these deals involved thousands of dollars. International wire transfers took weeks and cost hundreds in fees. Most payments happened in cash, creating security risks and corruption opportunities at every step.
+The nearest bank was thousands of kilometres away in Kinshasa. Mobile money could handle the equivalent of a few hundred dollars, but these deals involved hundreds of thousands of dollars. International wire transfers sometimes took weeks (due to AML and other "due diligence" because its destined for "big bad Africa") and cost hundreds in fees. Due to this most payments happened in cash, creating huge security risks and corruption opportunities at every step.
 
 I watched miners who extracted gold worth $10,000 per week receive maybe $3,000 after all the intermediaries took their cuts and charged their fees. **The people doing the actual work—the ones creating all the value—were getting systematically robbed by a financial system that couldn't serve them.**
 
-*"Why don't you just use banks?"* I naively asked one of the mining cooperative leaders.
-
-He laughed bitterly. *"The banks serve Kinshasa and Brussels, not Walikale. Our money travels to Europe and back before we can access it. By then, half of it is gone in fees."*
-
 That's when I realized: **the problem isn't the lack of decentralized technology. The problem is that money flows in the wrong direction.**
+
+You can see part of this story documented here—though it only scratches the surface of what we learned about how broken the global financial system really is.
 
 ## The Present: What's Possible Today
 
 Fast forward to a few weeks ago: I was traveling through Kenya with the team from Money Myths, discussing community banking and the future of digital payments. During that trip, I demonstrated something that would have seemed impossible back in 2008.
 
-I paid for meals, accommodation, and transport using **KAU—tokenized gold** from our partner Kinesis.money—stored in my Peloton+ wallet (the multi-asset wallet we've created for ALTX Africa, a regulated private securities exchange in Uganda). The gold was instantly converted to Kenya Shillings and paid directly to M-Pesa merchants.
+I paid for meals, accommodation, and transport using **KAU—tokenized gold** from our partner Kinesis.money—stored in my Peloton+ wallet (the multi-asset wallet we've created for ALTX Africa, a regulated private securities exchange in Uganda). The gold was instantly converted to Kenya Shillings and paid directly to merchants that accepts M-Pesa mobile money.
 
 Think about that: I was using actual gold as my spending money, converting it in real-time to local currency, and paying regular merchants who had no idea they were part of a precious metals transaction.
 
-Even more remarkable: **this same capability works on basic feature phones through our USSD interface**. A farmer in rural DRC could theoretically hold their wealth in gold and spend it at the local market, all without internet access or a smartphone.
+Even more remarkable: **this same capability works on basic feature phones**. A farmer in rural DRC could theoretically hold their wealth in gold and spend it at the local market, all without internet access or a smartphone.
 
 This is what the miners in Walikale needed 15 years ago. This is what millions of people creating real value still need today.
 
@@ -961,19 +961,19 @@ Here's what makes them different:
 
 ### Traditional Bank:
 - Shareholders in distant cities
-- Profits extracted to headquarters  
+- Profits extracted to headquarters
 - Decisions made by people who've never met the customers
 - Success measured by quarterly profits
 
-### SACCO:
+### Community Social Banks:
 - **Members are the shareholders**
 - **Profits distributed back to members as dividends**
 - **Loan decisions made by people who know the borrower's character**
 - **Success measured by community prosperity**
 
-The numbers don't lie. SACCOs maintain **90%+ loan repayment rates** compared to 60-70% for commercial banks. Why? Because they know their members. Because they're invested in long-term community success, not short-term extraction.
+The numbers don't lie. CSB's maintain **95%+ loan repayment rates** compared to 60–70% for commercial banks. Why? Because they know their members. Because they're invested in long-term community success, not short-term extraction.
 
-This is what functional community finance looks like.
+**That is what functional community finance looks like.**
 
 But there's a problem: Community Social Banks (CSBs) are stuck in the analog world. Paper records. Monthly meetings. Manual processes. Limited to people who can physically attend meetings.
 
@@ -981,39 +981,82 @@ But there's a problem: Community Social Banks (CSBs) are stuck in the analog wor
 
 This is where Clic.World's insight becomes clear: **we don't need to decentralize money. We need to recentralize it where it belongs.**
 
-- **Traditional finance** is centralized in the wrong hands—distant shareholders and extractive institutions.
-- **Pure crypto decentralization** often abandons institutions altogether, leaving people to figure out complex protocols on their own.
-- **Recentralization** means putting financial power in the hands of communities that already have proven systems for managing money collectively.
+Traditional finance is centralised in the wrong hands—distant shareholders and extractive institutions.
 
-## What This Looks Like in Practice
+Pure crypto decentralisation often abandons institutions altogether, leaving the average person in the street (or village) to figure out complex protocols on their own.
 
-Instead of replacing SACCOs, we enhance them:
+Recentralisation means putting financial power back in the hands of communities that already have proven systems for managing money collectively. But its not just about the money - we also need to re-calibrate the entire value chain, transforming not only the way money is managed in the community but also how value are extracted, whether from planting crops or mining gold.
 
-**Before:** Farmers deposit money in a SACCO, wait for monthly meetings to apply for loans, get approved by committee members who know them personally, receive cash loans for seeds and fertilizer.
+## What Does This Look Like in Practice? Here's an example:
 
-**After:** Farmers deposit money in a blockchain-enhanced SACCO, apply for loans via mobile app, get approved by AI trained on community lending patterns + committee oversight, receive instant digital payments they can spend anywhere.
+### The Isiolo Artisanal Mining Community Agri-Mining Value Chain Solution
 
-**The trust and governance stay the same. The technology gets upgraded.**
+**Current Challenges (Before Implementation)**
 
-### Real Example: Kenyan Dairy Cooperative
+1. **Economic Exploitation and Poverty**
+• Extreme poverty caused by absence of formal markets and access to financing for mining operations
+• Severe exploitation by middlemen who control the supply chain and pricing
+• Miners receive minimal compensation for their labor and resources, while selling all production at discount
+• Food security challenges
 
-We've been piloting with a dairy cooperative in Central Kenya. Here's what changed:
+2. **Critical Health and Safety Risks**
+• Life-threatening dangers including mine collapses that can bury workers alive
+• Chemical poisoning from mercury and other toxic substances used in processing
+• Respiratory complications and long-term health issues from exposure to hazardous materials
+• Inadequate safety protocols and protective equipment
 
-**Before Clic.World:**
-- Farmers deliver milk daily
-- Cooperative pays once monthly (cashflow problems)
-- Members never know milk prices until payment day
-- No access to emergency loans
+3. **Infrastructure Deficits and Social Impact**
+• Lack of basic infrastructure including access roads, reliable water supply, and electricity
+• Absence of decent housing and healthcare facilities in mining areas
+• Extended periods away from families, disrupting social structures and community bonds
+• Limited access to education and social services
 
-**After Implementation:**
-- Farmers earn "Milk Tokens" for each verified liter delivered
-- Tokens can be traded instantly for cash, farm inputs, or saved
-- Members vote monthly on fair milk pricing via mobile app
-- AI provides instant micro-loans against future milk production
+4. **Environmental Degradation**
+• Widespread contamination from chemicals used in mineral processing and refinement
+• Severe soil erosion and water pollution affecting surrounding communities
+• Deforestation and habitat destruction in mining areas
+• Abandoned mine sites pose ongoing risks to wildlife, livestock, and human activities
 
-**Results:** 20% increase in farmer income, 95% reduction in payment delays, 40% increase in loan accessibility.
+5. **Technological Limitations**
+• Reliance on outdated, labor-intensive extraction methods
+• Inefficient processing techniques resulting in poor-quality output
+• Disproportionate effort required for minimal financial returns
+• Lack of modern equipment and technical expertise
 
-Same cooperative. Same farmers. Same trust relationships. **Better tools.**
+**Expected Benefits (After Clic.World S.E.E.D Model Implementation)**
+
+1. **Advanced Processing Technology**
+• Implementation of modern extraction, processing, and refining technologies
+• Value-added production systems that increase product purity and quantity
+• Enhanced safety protocols that eliminate miner exposure to health hazards
+• Quality control systems ensuring consistent, high-grade output
+
+2. **Comprehensive Wealth Creation through Value Chain Development**
+• Elimination of exploitative middlemen through integrated supply chain management
+• Significant earnings multiplication through the direct tokenisation of the gold production, with the community CSB's now able to retain a significant portion of the gold as an asset instead of selling it all (In partnership with international Custodial Institutions)
+• Direct access to international markets and pricing transparency with selling of the gold exclusively through the community gold token as well as the Clic.World Social Financial Eco-system "CLIX" token
+
+3. **Regulatory Framework and Legal Mining Practices**
+• Implementation of comprehensive mining regulations and oversight mechanisms
+• Elimination of illegal mining activities through proper licensing and monitoring
+• Establishment of industry standards and best practices
+• Creation of accountability systems for all stakeholders
+
+4. **Infrastructure Development and Community Sustainability**
+• Construction of essential infrastructure including roads, water systems, and power supply
+• Development of healthcare facilities and educational institutions
+• Creation of decent housing and community centers
+• Establishment of resilient livelihood systems that support long-term community development
+
+5. **Ecological Restoration and Integrated Land Use**
+• Transformation of degraded mining areas into productive agricultural and ecological spaces (Moringa will be introduced for this purpose in Isiolo)
+• Implementation of comprehensive afforestation and reforestation programs
+• Integration of sustainable agriculture with mining activities to ensure food security
+• Development of eco-friendly land management practices that support both mining and farming communities
+
+Same community, same trust relationships, same governance. Same farmers and artisanal miners. Just better tools, provided from sustainable revenue, not donor dependancy.
+
+**Results:** Increase in income, reduction in payment delays, increase in loan accessibility. Increase in Quality of Life. Real wealth creation in action.
 
 ## Why This Matters Beyond Africa
 
@@ -1028,36 +1071,44 @@ Clic.World's recentralization model could work anywhere people value community o
 ## The Technology: Boring on Purpose
 
 ### Here's what we're NOT building:
-- A new cryptocurrency for speculation
-- A DeFi protocol for yield farming
-- A Web3 social network with tokens for likes
-- Another platform for trading digital art
+• A new cryptocurrency for moonshot speculation (Although we ARE using Kimi K2 from moonshot.ai!)
+• A DeFi protocol for yield farming
+• A Web3 social network with tokens for likes
+• Yet another platform for trading digital art
 
 ### Here's what we ARE building:
-- Mobile banking that works on any phone
-- Instant cross-border payments for remittances
-- AI-powered lending based on community knowledge
-- Real asset tokenization (gold, silver, agricultural commodities)
-- Transparent governance tools for cooperative decision-making
+• Mobile banking and financial services that works on any phone
+• Instant multi-currency cross-border payments
+• AI augmented lending based on community knowledge
+• Real asset tokenisation (gold, silver, agricultural commodities)
+• Sustainable eco-system token for community investment (CLIX)
+• Improved value chain management
+• Transparent governance tools for cooperative decision-making
 
 **The technology is intentionally boring because the problems we're solving are serious.**
 
 ## The Bigger Picture
 
-Clic.World isn't just a fintech company. **We're part of a global movement toward economic sovereignty.**
+Clic.World isn't just a fintech company. **We're a part of a global movement toward sustainable economic sovereignty.**
 
 Instead of waiting for governments to fix inequality or corporations to become ethical, communities are taking control of their own economic destiny.
 
-- In Kenya, dairy farmers are setting their own milk prices
-- In Uganda, cassava growers are trading directly with processors
-- In Nigeria, market women are accessing credit without collateral
-- In the diaspora, families are sending money home without Western Union fees
+• In Kenya, artisanal miners can retain their gold and issue security exchange tradable gold tokens
+• In Uganda, coffee farmers can trade directly with processors and export markets
+• In Nigeria, market women will be able to access credit without collateral
+• In the diaspora, families can send money home without Western Union fees
 
-**This is what recentralization looks like: money flowing to the people who create value, controlled by the communities who understand local needs.**
+**This is what recentralisation looks like: money flowing towards the people who create value, controlled by the communities who understand local needs and operate in trust relationships, while transforming the entire process of how that value is created.**
 
 ## What's Next
 
-We're currently in regulatory sandboxes in Kenya, Uganda, and Tanzania. Our Peloton app is live with 5,000+ users across 100 communities. We're processing $50,000+ in monthly transactions with **zero defaults** on community-issued loans.
+We're currently live in Kenya and Uganda with our Clic and Peloton+ apps, and are fully integrated with ABC Bank in Kenya and ALTX Securities Exchange where we have tokenised Uganda bonds and other securities as well as gold and silver in partnership with Kinesis.
+
+• Three major Community Social Banks (CSB's) have been set up
+• We have processed over KES 100m transactions in Kenya, so far
+• Our de-centralised business hub with online marketplace is being piloted with three usecases in Uganda
+• Our AgriMining S.E.E.D (Sustainable Economic and Environmental Development) Model is being implement in Isiolo in Kenya
+• Our end-to-end value chain solution, that include full commodity traceability, is being implemented in a coffee value-chain pilot in Uganda
 
 By 2030, we aim to serve 25 million people across Africa and the diaspora through 5,000 community-owned social banks.
 
@@ -1077,17 +1128,19 @@ The question is: what choice will you make?
 
 ---
 
-*Andre van Zyl is CEO of Clic.World and has spent the last decade working with cooperative financial institutions across East Africa. Clic.World is currently fundraising Series A to expand community-owned banking across Africa and the diaspora.*
+*Andre van Zyl is the co-founder and CEO of Clic.World where he is building AI-native infrastructure for collaborative intelligence as part of the CLIX Social Financial Eco-System. He has spent the last decade working with cooperative financial institutions across East and Central Africa. Clic.World is currently fundraising Series A to expand community-owned banking and value-chain transformation across Africa and the diaspora.*
 
-*Interested in learning more? Visit [clic.world](https://clic.world) or follow our journey on LinkedIn.*
+*Interested in learning more? Visit clic.world or follow me on LinkedIn or on SubStack*
+
+*#FinTech #Africa #Cooperatives #Blockchain #CommunityFinance #DecentralisedFinance #SocialBanking #FinancialInclusion #Gold #Blockchain #Stellar*
     `,
     author: "Andre van Zyl",
     date: "2025-03-15",
     category: "Movement",
-    tags: ["decentralization", "SACCOs", "DRC", "community finance", "recentralization", "Kenya", "cooperatives"],
+    tags: ["decentralization", "SACCOs", "DRC", "community finance", "recentralization", "Kenya", "cooperatives", "Isiolo", "artisanal mining", "SEED model"],
     readTime: "12 min read",
     featured: true,
-    image: `${process.env.PUBLIC_URL}/community-group.jpg`
+    image: `${process.env.PUBLIC_URL}/Mining%2002%20small.png`
   },
   {
     id: 4,

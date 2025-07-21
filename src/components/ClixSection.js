@@ -126,7 +126,7 @@ const ClixSection = ({ clixPriceUSD, clixPriceXLM, xlmToUSD }) => {
           </h2>
           
           <p className="text-xl text-gray-600 max-w-4xl mx-auto mb-8 leading-relaxed">
-            The financial upgrade that puts communities first. CLIX combines a complete social financial platform with a community-owned token, delivering real financial empowerment beyond traditional banking and crypto speculation.
+            The financial upgrade that puts communities first. CLIX combines a complete social financial platform with a community-focussed token, delivering real financial empowerment beyond traditional banking and crypto speculation.
           </p>
           
           <div className="bg-gradient-to-r from-green-50 to-blue-50 rounded-2xl p-8 border border-green-200 max-w-5xl mx-auto">
@@ -143,7 +143,7 @@ const ClixSection = ({ clixPriceUSD, clixPriceXLM, xlmToUSD }) => {
               </div>
               <div>
                 <div className="text-3xl font-bold text-purple-600 mb-2">🤝</div>
-                <h4 className="font-bold text-gray-900">Community-Owned</h4>
+                <h4 className="font-bold text-gray-900">Community-Focussed</h4>
                 <p className="text-sm text-gray-600">Regulatory aligned</p>
               </div>
             </div>
@@ -288,7 +288,7 @@ const ClixSection = ({ clixPriceUSD, clixPriceXLM, xlmToUSD }) => {
         <div className="text-center mb-12">
           <h3 className="text-3xl font-bold text-gray-900 mb-6">The CLIX Difference</h3>
           <p className="text-xl text-gray-600 mb-16 max-w-3xl mx-auto">
-            A practical, community-focused alternative serving real-world needs
+            A practical, community-focussed alternative serving real-world needs
           </p>
         </div>
         

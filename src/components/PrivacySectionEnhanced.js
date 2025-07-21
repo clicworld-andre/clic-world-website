@@ -140,7 +140,7 @@ const PrivacySectionEnhanced = () => {
                 className="text-gray-900 hover:text-blue-600 transition-colors duration-200 cursor-pointer bg-transparent p-0 font-inherit text-inherit underline decoration-blue-500 decoration-2 underline-offset-4"
                 title="View Patent Document: Secure Private Portable Vault Container"
               >
-                Patented Quantum Security
+                Patented Quantum Security*
               </button>
             </h3>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -168,7 +168,7 @@ const PrivacySectionEnhanced = () => {
         {/* Beta Notice */}
         <div className="text-center bg-blue-50 border border-blue-200 rounded-2xl p-8">
           <p className="text-lg text-blue-800 italic">
-            *The Clic Data Privacy Vault is a CLIX Premium value added product offered in partnership with PRYVAZ. It is currently in beta testing and final pricing (in CLIX) will be announced soon.
+            *The Clic Data Privacy Vault is a CLIX Premium value added product offered in partnership with <a href="https://www.zbandit.com/pryvaz" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline font-semibold">zBANDIT PRYVAZ</a>. It is currently in beta testing and final pricing (in CLIX) and public launch date will be announced soon.
           </p>
         </div>
       </div>

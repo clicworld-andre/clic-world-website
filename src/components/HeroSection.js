@@ -68,7 +68,7 @@ const HeroSection = ({ clixPriceUSD, clixPriceXLM, xlmToUSD, scrollToSection }) 
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
               <div className="absolute bottom-6 left-6 text-white">
                 <div className="text-lg font-semibold mb-1">Building Tomorrow</div>
-                <div className="text-sm opacity-90">Community-Owned Finance</div>
+                <div className="text-sm opacity-90">Community-Focussed Finance</div>
               </div>
             </div>
           </div>
